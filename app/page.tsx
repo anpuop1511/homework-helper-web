@@ -74,9 +74,12 @@ export default function Home() {
             >
               Get for Android
             </Link>
-            <button className="m3-button-tonal text-lg w-full sm:w-auto opacity-70 cursor-not-allowed">
-              Web App Coming Soon
-            </button>
+            <Link 
+              href="/app/index.html" 
+              className="m3-button-tonal text-lg w-full sm:w-auto text-center font-bold text-blue-500 hover:scale-105 transition-transform"
+            >
+              Launch Web App 🚀
+            </Link>
           </div>
         </div>
       </section>
