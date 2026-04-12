@@ -1,14 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async rewrites() {
-    return [
-      {
-        source: '/app/assets/.env',
-        destination: '/app/assets/env.txt',
-      },
-    ];
-  },
   async redirects() {
     return [
       {
