@@ -75,7 +75,7 @@ export default function Home() {
               Get for Android
             </Link>
             <Link 
-              href="/app/index.html" 
+              href="/app/" 
               className="m3-button-tonal text-lg w-full sm:w-auto text-center font-bold text-blue-500 hover:scale-105 transition-transform"
             >
               Launch Web App 🚀
