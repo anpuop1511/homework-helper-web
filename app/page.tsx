@@ -57,6 +57,11 @@ export default function Home() {
 
         <div className="relative z-10 max-w-5xl text-center space-y-8 fade-in-up">
           
+          <Link href="/app/" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-transform" style={{ background: "var(--secondary-container)", color: "var(--on-secondary-container)" }}>
+            <span className="flex w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            🎉 We're live on the Web! Try out Homework Helper directly in your browser.
+          </Link>
+
           <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter leading-tight">
             Learn smarter with your <br className="hidden md:block"/>
             <span style={{ color: "var(--primary)" }}>AI Study Buddy</span>
@@ -256,9 +261,9 @@ export default function Home() {
             HomeworkHelper
           </div>
           <div className="flex gap-8 text-sm font-medium" style={{ color: "var(--on-surface-variant)" }}>
-            <Link href="https://github.com/anpuop1511/homework-helper" className="hover:text-current transition-colors">GitHub Repository</Link>
-            <a href="#" className="hover:text-current transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-current transition-colors">Terms of Service</a>
+            <Link href="https://github.com/anpuop1511/homework-helper" target="_blank" className="hover:text-current transition-colors">GitHub Repository</Link>
+            <Link href="/privacy" className="hover:text-current transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-current transition-colors">Terms of Service</Link>
           </div>
         </div>
       </footer>
