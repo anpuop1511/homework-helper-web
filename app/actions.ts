@@ -2,8 +2,6 @@
 
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function joinWaitlist(formData: FormData) {
   const email = formData.get('email') as string;
   
@@ -11,13 +9,17 @@ export async function joinWaitlist(formData: FormData) {
     return { error: 'Please enter a valid email address.' };
   }
 
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    return { error: 'Server Error: The RESEND_API_KEY is missing from Vercel.' };
+  }
+
+  const resend = new Resend(apiKey);
+
   try {
-    // When using Resend's free tier without verifying a custom domain, 
-    // you can only send emails TO yourself (the email you signed up with).
-    // This sends YOU a notification that someone joined the waitlist!
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'Waitlist <onboarding@resend.dev>',
-      to: 'anpuop1511@gmail.com', // Sends the notification directly to your inbox
+      to: 'anpuop1511@gmail.com',
       subject: '🎉 New iOS Waitlist Signup!',
       html: `
         <h2>New Waitlist Signup</h2>
@@ -28,9 +30,14 @@ export async function joinWaitlist(formData: FormData) {
       `,
     });
 
+    if (error) {
+      console.error('Resend API Error:', error);
+      return { error: `Resend Error: ${error.message}` };
+    }
+
     return { success: true };
-  } catch (error) {
-    console.error(error);
-    return { error: 'Failed to join the waitlist. Please try again later.' };
+  } catch (error: any) {
+    console.error('Catch Error:', error);
+    return { error: `Action Error: ${error.message || 'Unknown error'}` };
   }
 }
