@@ -101,6 +101,90 @@ const faqData = {
   ],
 } as const;
 
+const studyMaterials = [
+  {
+    subject: "Math",
+    level: "Algebra to Calculus",
+    title: "Problem Breakdown Playbook",
+    description:
+      "Turn hard questions into smaller solvable chunks, then verify each step with AI explanations and self-check prompts.",
+    cta: "Open Khan Academy",
+    href: "https://www.khanacademy.org/math",
+  },
+  {
+    subject: "Science",
+    level: "Biology, Chemistry, Physics",
+    title: "Lab Concept Booster",
+    description:
+      "Use quick concept maps and summary prompts to connect formulas, diagrams, and real-world examples before quizzes.",
+    cta: "Explore CK-12",
+    href: "https://www.ck12.org/student/",
+  },
+  {
+    subject: "Writing",
+    level: "Essays and Reports",
+    title: "Essay Builder Kit",
+    description:
+      "Plan stronger introductions, thesis statements, and paragraph flow with scaffold templates and revision checklists.",
+    cta: "Try Purdue OWL",
+    href: "https://owl.purdue.edu/",
+  },
+  {
+    subject: "Computer Science",
+    level: "Beginner to Intermediate",
+    title: "Code Practice Sprint",
+    description:
+      "Pair AI hints with short practice rounds, debugging questions, and reflection notes to improve coding confidence.",
+    cta: "Visit freeCodeCamp",
+    href: "https://www.freecodecamp.org/",
+  },
+];
+
+const learningJourney = [
+  {
+    step: "01",
+    title: "Capture Tasks",
+    description:
+      "Add assignments once and organize by subject so nothing slips through your schedule.",
+  },
+  {
+    step: "02",
+    title: "Ask Better Questions",
+    description:
+      "Use voice chat to ask for examples, concept summaries, and step-by-step guidance you can understand.",
+  },
+  {
+    step: "03",
+    title: "Study in Focus Blocks",
+    description:
+      "Run short study sprints, complete one milestone, and log momentum with streak tracking.",
+  },
+  {
+    step: "04",
+    title: "Collaborate and Review",
+    description:
+      "Share project spaces, compare approaches, and revise together before deadlines.",
+  },
+];
+
+const socialProof = [
+  {
+    quote:
+      "I stopped missing deadlines because everything sits in one place and the voice help is actually useful.",
+    name: "High school student",
+  },
+  {
+    quote:
+      "The assignment progress and group boards made team projects less chaotic in our class.",
+    name: "Student project lead",
+  },
+  {
+    quote:
+      "The web app worked great on my iPhone home screen. It feels much faster than the tools I used before.",
+    name: "iOS web user",
+  },
+];
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -154,7 +238,9 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center gap-8 font-medium">
             <a href="#features" className="hover:opacity-70 transition-opacity">Features</a>
+            <a href="#materials" className="hover:opacity-70 transition-opacity">Materials</a>
             <a href="#showcase" className="hover:opacity-70 transition-opacity">Showcase</a>
+            <a href="#faq" className="hover:opacity-70 transition-opacity">FAQ</a>
             <button onClick={toggleTheme} className="text-2xl hover:scale-110 transition-transform" title="Toggle Theme">
               {theme === "dark" ? "☀️" : "🌙"}
             </button>
@@ -208,6 +294,105 @@ export default function Home() {
             >
               Launch Web App 🚀
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Study Materials Section */}
+      <section id="materials" className="py-28 px-6" style={{ background: "var(--surface-container-lowest)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-14 md:mb-16 max-w-3xl fade-in-up">
+            <p className="text-sm uppercase tracking-[0.22em] font-semibold mb-4" style={{ color: "var(--primary)" }}>
+              Study Material Hub
+            </p>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Use trusted resources with your AI workflow.</h2>
+            <p className="text-xl" style={{ color: "var(--on-surface-variant)" }}>
+              These hand-picked learning sources pair well with Homework Helper so students can learn concepts deeply, not just finish tasks.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {studyMaterials.map((material) => (
+              <article key={material.title} className="m3-card p-8 flex flex-col gap-6 fade-in-up">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.16em] font-semibold" style={{ color: "var(--primary)" }}>
+                      {material.subject}
+                    </p>
+                    <p className="text-sm mt-1" style={{ color: "var(--on-surface-variant)" }}>
+                      {material.level}
+                    </p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold" style={{ background: "var(--primary-container)", color: "var(--on-primary-container)" }}>
+                    Recommended
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">{material.title}</h3>
+                  <p className="text-base leading-relaxed" style={{ color: "var(--on-surface-variant)" }}>
+                    {material.description}
+                  </p>
+                </div>
+
+                <Link
+                  href={material.href}
+                  target="_blank"
+                  className="m3-button-tonal w-fit font-semibold"
+                >
+                  {material.cta}
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Learning Journey */}
+      <section className="py-28 px-6" style={{ background: "var(--surface)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-14 md:mb-16 fade-in-up">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">A study system that actually sticks.</h2>
+            <p className="text-xl max-w-3xl" style={{ color: "var(--on-surface-variant)" }}>
+              More than a task list: this is a repeatable workflow to keep you focused from assignment intake to exam prep.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {learningJourney.map((item) => (
+              <article key={item.step} className="m3-card p-8 fade-in-up">
+                <p className="text-sm font-semibold tracking-[0.16em] mb-4" style={{ color: "var(--primary)" }}>
+                  STEP {item.step}
+                </p>
+                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                <p style={{ color: "var(--on-surface-variant)" }}>{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Outcomes / Social Proof */}
+      <section className="py-24 px-6" style={{ background: "var(--surface-container-lowest)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12 fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-tight">Students say it feels easier to stay consistent.</h2>
+            <p className="text-xl max-w-2xl" style={{ color: "var(--on-surface-variant)" }}>
+              Real study habits beat last-minute cramming. Homework Helper is designed around that principle.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {socialProof.map((item) => (
+              <blockquote key={item.name} className="m3-card p-8 fade-in-up">
+                <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--on-surface)" }}>
+                  “{item.quote}”
+                </p>
+                <cite className="text-sm not-italic font-semibold" style={{ color: "var(--on-surface-variant)" }}>
+                  {item.name}
+                </cite>
+              </blockquote>
+            ))}
           </div>
         </div>
       </section>
@@ -560,6 +745,7 @@ export default function Home() {
               <div className="flex flex-col gap-3 text-sm font-medium" style={{ color: "var(--on-surface-variant)" }}>
                 <Link href="/app/" className="hover:text-current transition-colors">Launch Web App</Link>
                 <Link href="https://github.com/anpuop1511/homework-helper/releases/latest" target="_blank" className="hover:text-current transition-colors">Download Android</Link>
+                <a href="#materials" className="hover:text-current transition-colors">Study Materials</a>
                 <a href="#faq" className="hover:text-current transition-colors">FAQ</a>
                 <Link href="/changelog" className="hover:text-current transition-colors">Changelog</Link>
               </div>
