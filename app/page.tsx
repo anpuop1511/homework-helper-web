@@ -4,6 +4,34 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="border-b" style={{ borderColor: "var(--outline-variant)", marginBottom: isOpen ? "1rem" : "0" }}>
+      <button 
+        className="w-full text-left py-5 flex justify-between items-center focus:outline-none transition-opacity hover:opacity-80"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <h4 className="text-xl font-bold pr-4" style={{ color: "var(--on-surface)" }}>{question}</h4>
+        <span 
+          className="text-3xl font-light transform transition-transform duration-300" 
+          style={{ color: "var(--primary)", transform: isOpen ? "rotate(45deg)" : "rotate(0)" }}
+        >
+          +
+        </span>
+      </button>
+      <div 
+        className={`overflow-hidden transition-all duration-300 ease-in-out`}
+        style={{ maxHeight: isOpen ? "300px" : "0px", opacity: isOpen ? 1 : 0 }}
+      >
+        <p className="text-lg leading-relaxed pb-6" style={{ color: "var(--on-surface-variant)" }}>
+          {answer}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const FeatureCard = ({ icon, title, description }: { icon: string; title: string; description: string }) => (
   <div className="m3-card p-8 fade-in-up">
     <div className="w-14 h-14 m3-icon-container text-2xl mb-6">
@@ -233,6 +261,60 @@ export default function Home() {
                 </div>
               </div>
 
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="py-32 px-6 relative z-10">
+        <div className="max-w-4xl mx-auto fade-in-up">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Frequently Asked Questions</h2>
+            <p className="text-xl" style={{ color: "var(--on-surface-variant)" }}>Everything you need to know about the app.</p>
+          </div>
+
+          <div className="space-y-12">
+            {/* General Questions */}
+            <div>
+              <h3 className="text-2xl font-extrabold mb-6 flex items-center gap-3" style={{ color: "var(--primary)" }}>
+                <span className="text-3xl">🌎</span> General Questions
+              </h3>
+              <div className="m3-card !rounded-3xl p-6 md:p-8">
+                <FAQItem 
+                  question="Is Homework Helper free?" 
+                  answer="Yes! All core features of Homework Helper, including task tracking, AI voice chat, and the social quad are completely free to use." 
+                />
+                <FAQItem 
+                  question="How does the AI Voice Chat work?" 
+                  answer="We integrate with Google's Gemini AI. When you ask a question using your microphone, Gemini analyzes it and provides a spoken, step-by-step educational breakdown right back to you." 
+                />
+                <FAQItem 
+                  question="Is my data shared or sold?" 
+                  answer="Absolutely not. Your assignment data is securely stored using Firebase solely for syncing across your own devices. We never sell your study habits." 
+                />
+              </div>
+            </div>
+
+            {/* iOS Questions */}
+            <div>
+              <h3 className="text-2xl font-extrabold mb-6 flex items-center gap-3" style={{ color: "var(--primary)" }}>
+                <span className="text-3xl">🍎</span> iPhone & Waitlist
+              </h3>
+              <div className="m3-card !rounded-3xl p-6 md:p-8">
+                <FAQItem 
+                  question="Can I download the app on my iPhone?" 
+                  answer="Currently, the native mobile app is exclusive to Android. However, iOS users can access the fully-featured Web App directly from Safari just by going to our website!" 
+                />
+                <FAQItem 
+                  question="Will there be an iOS App Store release?" 
+                  answer="Yes! Because the app is built using the Flutter framework, we plan to compile and release a native iOS version to the Apple App Store as development continues." 
+                />
+                <FAQItem 
+                  question="Do the NFC bump features work on the Web App for iPhone?" 
+                  answer="NFC bumping requires deep hardware access which standard web browsers don't support yet. Web users can still join groups via invite links or QR codes." 
+                />
+              </div>
             </div>
           </div>
         </div>
