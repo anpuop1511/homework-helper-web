@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import WaitlistForm from "./components/WaitlistForm";
 
 const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -318,6 +319,9 @@ export default function Home() {
                   Scroll down and tap <b>"Add to Home Screen"</b>
                 </li>
               </ol>
+
+              {/* Waitlist Form Integration */}
+              <WaitlistForm />
             </div>
             {/* Decoration */}
             <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full opacity-10 pointer-events-none" style={{ background: "var(--primary)" }}></div>
