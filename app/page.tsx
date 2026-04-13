@@ -448,12 +448,13 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="w-full py-12 px-6 border-t" style={{ borderColor: "var(--outline-variant)", background: "var(--surface)" }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col justify-center items-center gap-6">
           <div className="text-xl font-bold" style={{ color: "var(--primary)" }}>
             HomeworkHelper
           </div>
-          <div className="flex gap-8 text-sm font-medium" style={{ color: "var(--on-surface-variant)" }}>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm font-medium" style={{ color: "var(--on-surface-variant)" }}>
             <Link href="https://github.com/anpuop1511/homework-helper" target="_blank" className="hover:text-current transition-colors">GitHub Repository</Link>
+            <Link href="/changelog" className="hover:text-current transition-colors">Changelog</Link>
             <Link href="/privacy" className="hover:text-current transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-current transition-colors">Terms of Service</Link>
           </div>
