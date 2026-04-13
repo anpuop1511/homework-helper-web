@@ -56,9 +56,44 @@
   --color-outline-variant: var(--outline-variant);
 }
 
+:root[data-theme='dark'] {
+  /* Material 3 Expressive - Dark Theme */
+  --primary: #9ecaff;
+  --on-primary: #003258;
+  --primary-container: #00497d;
+  --on-primary-container: #d1e4ff;
+  
+  --secondary: #bbc7db;
+  --on-secondary: #253140;
+  --secondary-container: #3b4858;
+  --on-secondary-container: #d7e3f7;
+  
+  --tertiary: #d6bee4;
+  --on-tertiary: #3b2948;
+  --tertiary-container: #523f5f;
+  --on-tertiary-container: #f2daff;
+
+  --error: #ffb4ab;
+  --error-container: #93000a;
+  --on-error-container: #ffdad6;
+  
+  --surface: #1a1c1e;
+  --on-surface: #e2e2e6;
+  --on-surface-variant: #c3c7cf;
+  
+  --surface-container-lowest: #0d0f11;
+  --surface-container-low: #1a1c1e;
+  --surface-container: #1e2022;
+  --surface-container-high: #282a2d;
+  --surface-container-highest: #333538;
+  
+  --outline: #8c9199;
+  --outline-variant: #43474e;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    /* Material 3 Expressive - Dark Theme */
+  :root:not([data-theme='light']) {
+    /* Auto-Dark fallback if no explicit theme is set */
     --primary: #9ecaff;
     --on-primary: #003258;
     --primary-container: #00497d;

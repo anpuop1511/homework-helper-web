@@ -45,8 +45,19 @@ const FeatureCard = ({ icon, title, description }: { icon: string; title: string
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState("dashboard");
+  const [theme, setTheme] = useState<"light" | "dark" | "auto">("auto");
 
   useEffect(() => {
+    // Check initial system preference or localStorage
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.setAttribute("data-theme", savedTheme);
+    } else {
+      const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", isSystemDark ? "dark" : "light");
+    }
+
     const handleScroll = () => {
       setScrollY(window.scrollY);
     };
@@ -54,6 +65,15 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" || (theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches) 
+      ? "light" 
+      : "dark";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
 
   return (
     <main className="min-h-screen selection:bg-blue-500/30" style={{ background: "var(--surface)", color: "var(--on-surface)" }}>
@@ -66,6 +86,9 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-8 font-medium">
             <a href="#features" className="hover:opacity-70 transition-opacity">Features</a>
             <a href="#showcase" className="hover:opacity-70 transition-opacity">Showcase</a>
+            <button onClick={toggleTheme} className="text-2xl hover:scale-110 transition-transform" title="Toggle Theme">
+              {theme === "dark" ? "☀️" : "🌙"}
+            </button>
             <Link href="https://github.com/anpuop1511/homework-helper/releases/latest" target="_blank" className="m3-button-filled">
               Download
             </Link>
@@ -266,6 +289,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Community & iOS Specific Features */}
+      <section className="py-24 px-6 relative z-10" style={{ background: "var(--surface)" }}>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 fade-in-up">
+          
+          {/* iOS Install Card */}
+          <div className="flex-1 m3-card !rounded-3xl p-10 md:p-12 relative overflow-hidden">
+            <div className="relative z-10">
+              <div className="text-4xl mb-6">🍎</div>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4 pb-2">Native on iPhone</h2>
+              <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--on-surface-variant)" }}>
+                You don't have to wait for the App Store. Because our Web App is fully PWA-supported, 
+                you can install Homework Helper onto your home screen instantly. It runs in full-screen 
+                and feels just like a native iOS app.
+              </p>
+              
+              <ol className="space-y-4 font-medium" style={{ color: "var(--on-surface)" }}>
+                <li className="flex items-center gap-4">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full" style={{ background: "var(--primary-container)", color: "var(--on-primary-container)" }}>1</span>
+                  Open our site using Safari
+                </li>
+                <li className="flex items-center gap-4">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full" style={{ background: "var(--primary-container)", color: "var(--on-primary-container)" }}>2</span>
+                  Tap the <b className="px-2 py-1 rounded bg-gray-500/20 text-sm flex items-center">Share <svg className="w-4 h-4 ml-1 inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg></b> icon at the bottom
+                </li>
+                <li className="flex items-center gap-4">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full" style={{ background: "var(--primary-container)", color: "var(--on-primary-container)" }}>3</span>
+                  Scroll down and tap <b>"Add to Home Screen"</b>
+                </li>
+              </ol>
+            </div>
+            {/* Decoration */}
+            <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full opacity-10 pointer-events-none" style={{ background: "var(--primary)" }}></div>
+          </div>
+
+          {/* Open Source Card */}
+          <div className="flex-1 m3-card !rounded-3xl p-10 md:p-12 relative overflow-hidden" style={{ background: "var(--secondary-container)", color: "var(--on-secondary-container)" }}>
+            <div className="relative z-10">
+              <div className="text-4xl mb-6">💻</div>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4 pb-2">100% Open Source</h2>
+              <p className="text-lg leading-relaxed mb-6 opacity-90">
+                Homework Helper is built transparently in the open. 
+                Whether you want to audit our security, report an issue, or contribute 
+                a new feature to help fellow students, you're welcome to jump into the code.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
+                <Link 
+                  href="https://github.com/anpuop1511/homework-helper" 
+                  target="_blank"
+                  className="px-6 py-3 rounded-full font-bold flex items-center justify-center gap-2 shadow-lg transition-transform hover:scale-105"
+                  style={{ background: "var(--on-secondary-container)", color: "var(--secondary-container)" }}
+                >
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="css-i6dzq1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                  View the Code
+                </Link>
+                <Link 
+                  href="https://github.com/anpuop1511/homework-helper/issues" 
+                  target="_blank"
+                  className="px-6 py-3 rounded-full font-bold flex items-center justify-center gap-2 transition-colors hover:bg-black/10"
+                >
+                  🐞 Report a Bug
+                </Link>
+              </div>
+            </div>
+            {/* Decoration */}
+            <div className="absolute -left-20 -top-20 w-80 h-80 rounded-full opacity-10 pointer-events-none" style={{ background: "var(--on-secondary-container)" }}></div>
+          </div>
+
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <section id="faq" className="py-32 px-6 relative z-10">
         <div className="max-w-4xl mx-auto fade-in-up">
@@ -333,6 +427,22 @@ export default function Home() {
           >
             Download Latest Release
           </Link>
+        </div>
+      </section>
+
+      {/* Developer Note */}
+      <section className="py-12 border-t" style={{ borderColor: "var(--outline-variant)" }}>
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-lg" style={{ color: "var(--on-surface-variant)" }}>
+          <div className="flex items-center gap-4 mb-6 md:mb-0">
+            <span className="text-3xl">👨‍💻</span>
+            <div>
+              <p className="font-bold mb-1" style={{ color: "var(--on-surface)" }}>Crafted with ☕ and code.</p>
+              <p className="text-sm">Built to make studying smarter, not harder.</p>
+            </div>
+          </div>
+          <div className="bg-blue-500/10 px-4 py-2 rounded-full font-medium" style={{ color: "var(--primary)" }}>
+            Made for Students, by Students 🎒
+          </div>
         </div>
       </section>
 
