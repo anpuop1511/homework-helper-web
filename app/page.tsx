@@ -308,7 +308,7 @@ export default function Home() {
                 />
                 <FAQItem 
                   question="Will there be an iOS App Store release?" 
-                  answer="Yes! Because the app is built using the Flutter framework, we plan to compile and release a native iOS version to the Apple App Store as development continues." 
+                  answer="Native Apple development is currently on hold due to the $99/year Apple Developer fee. However, as our user base grows, we definitely plan to release an official iOS version! For now, the Web App is fully optimized for Safari on iPhone." 
                 />
                 <FAQItem 
                   question="Do the NFC bump features work on the Web App for iPhone?" 
