@@ -42,10 +42,49 @@ const FeatureCard = ({ icon, title, description }: { icon: string; title: string
   </div>
 );
 
+const faqData = {
+  general: [
+    {
+      question: "Is Homework Helper free?",
+      answer:
+        "Yes. All core features, including task tracking, AI voice chat, and social collaboration, are free to use.",
+    },
+    {
+      question: "How does the AI Voice Chat work?",
+      answer:
+        "Homework Helper integrates with Gemini AI. Ask by voice, and get educational step-by-step responses read back with speech.",
+    },
+    {
+      question: "Is my data shared or sold?",
+      answer:
+        "No. Assignment data is stored in Firebase for syncing your experience across devices. Study data is not sold.",
+    },
+  ],
+  ios: [
+    {
+      question: "Can I download the app on iPhone?",
+      answer:
+        "The native mobile app is Android-first right now, but iPhone users can install and run the full web app from Safari.",
+    },
+    {
+      question: "Will there be an App Store release?",
+      answer:
+        "Yes, it is planned. Native iOS development is currently delayed due to Apple Developer Program costs.",
+    },
+    {
+      question: "Do NFC bump features work on iPhone web?",
+      answer:
+        "Not yet. Mobile browsers do not expose the hardware APIs needed for the NFC bump flow, so web users should use invites or QR.",
+    },
+  ],
+} as const;
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [theme, setTheme] = useState<"light" | "dark" | "auto">("auto");
+  const [faqCategory, setFaqCategory] = useState<"general" | "ios">("general");
+  const [faqSearch, setFaqSearch] = useState("");
 
   useEffect(() => {
     // Check initial system preference or localStorage
@@ -74,6 +113,14 @@ export default function Home() {
     localStorage.setItem("theme", newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
   };
+
+  const filteredFaq = faqData[faqCategory].filter((item) => {
+    const q = faqSearch.trim().toLowerCase();
+    if (!q) return true;
+    return item.question.toLowerCase().includes(q) || item.answer.toLowerCase().includes(q);
+  });
+
+  const currentYear = new Date().getFullYear();
 
   return (
     <main className="min-h-screen selection:bg-blue-500/30" style={{ background: "var(--surface)", color: "var(--on-surface)" }}>
@@ -365,51 +412,63 @@ export default function Home() {
         <div className="max-w-4xl mx-auto fade-in-up">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">Frequently Asked Questions</h2>
-            <p className="text-xl" style={{ color: "var(--on-surface-variant)" }}>Everything you need to know about the app.</p>
+            <p className="text-xl" style={{ color: "var(--on-surface-variant)" }}>Search and browse by topic.</p>
           </div>
 
-          <div className="space-y-12">
-            {/* General Questions */}
-            <div>
-              <h3 className="text-2xl font-extrabold mb-6 flex items-center gap-3" style={{ color: "var(--primary)" }}>
-                <span className="text-3xl">🌎</span> General Questions
-              </h3>
-              <div className="m3-card !rounded-3xl p-6 md:p-8">
-                <FAQItem 
-                  question="Is Homework Helper free?" 
-                  answer="Yes! All core features of Homework Helper, including task tracking, AI voice chat, and the social quad are completely free to use." 
-                />
-                <FAQItem 
-                  question="How does the AI Voice Chat work?" 
-                  answer="We integrate with Google's Gemini AI. When you ask a question using your microphone, Gemini analyzes it and provides a spoken, step-by-step educational breakdown right back to you." 
-                />
-                <FAQItem 
-                  question="Is my data shared or sold?" 
-                  answer="Absolutely not. Your assignment data is securely stored using Firebase solely for syncing across your own devices. We never sell your study habits." 
-                />
+          <div className="m3-card !rounded-3xl p-6 md:p-8">
+            <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between mb-8">
+              <div className="inline-flex p-1 rounded-full" style={{ background: "var(--surface-container-high)" }}>
+                <button
+                  onClick={() => setFaqCategory("general")}
+                  className="px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                  style={{
+                    background: faqCategory === "general" ? "var(--primary-container)" : "transparent",
+                    color: faqCategory === "general" ? "var(--on-primary-container)" : "var(--on-surface-variant)",
+                  }}
+                >
+                  🌎 General
+                </button>
+                <button
+                  onClick={() => setFaqCategory("ios")}
+                  className="px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                  style={{
+                    background: faqCategory === "ios" ? "var(--primary-container)" : "transparent",
+                    color: faqCategory === "ios" ? "var(--on-primary-container)" : "var(--on-surface-variant)",
+                  }}
+                >
+                  🍎 iPhone
+                </button>
               </div>
+
+              <input
+                type="text"
+                value={faqSearch}
+                onChange={(e) => setFaqSearch(e.target.value)}
+                placeholder="Search a question"
+                className="w-full md:w-72 px-4 py-3 rounded-2xl outline-none"
+                style={{
+                  background: "var(--surface)",
+                  color: "var(--on-surface)",
+                  border: "1px solid var(--outline-variant)",
+                }}
+              />
             </div>
 
-            {/* iOS Questions */}
-            <div>
-              <h3 className="text-2xl font-extrabold mb-6 flex items-center gap-3" style={{ color: "var(--primary)" }}>
-                <span className="text-3xl">🍎</span> iPhone & Waitlist
-              </h3>
-              <div className="m3-card !rounded-3xl p-6 md:p-8">
-                <FAQItem 
-                  question="Can I download the app on my iPhone?" 
-                  answer="Currently, the native mobile app is exclusive to Android. However, iOS users can access the fully-featured Web App directly from Safari just by going to our website!" 
-                />
-                <FAQItem 
-                  question="Will there be an iOS App Store release?" 
-                  answer="Native Apple development is currently on hold due to the $99/year Apple Developer fee. However, as our user base grows, we definitely plan to release an official iOS version! For now, the Web App is fully optimized for Safari on iPhone." 
-                />
-                <FAQItem 
-                  question="Do the NFC bump features work on the Web App for iPhone?" 
-                  answer="NFC bumping requires deep hardware access which standard web browsers don't support yet. Web users can still join groups via invite links or QR codes." 
-                />
+            {filteredFaq.length > 0 ? (
+              <div>
+                {filteredFaq.map((item) => (
+                  <FAQItem key={item.question} question={item.question} answer={item.answer} />
+                ))}
               </div>
-            </div>
+            ) : (
+              <div className="py-10 text-center rounded-2xl" style={{ background: "var(--surface)", color: "var(--on-surface-variant)" }}>
+                No questions found for that search.
+              </div>
+            )}
+
+            <p className="text-sm mt-6" style={{ color: "var(--on-surface-variant)" }}>
+              Tip: If you still have a question, open an issue on GitHub and we will add it here.
+            </p>
           </div>
         </div>
       </section>
@@ -447,16 +506,46 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full py-12 px-6 border-t" style={{ borderColor: "var(--outline-variant)", background: "var(--surface)" }}>
-        <div className="max-w-7xl mx-auto flex flex-col justify-center items-center gap-6">
-          <div className="text-xl font-bold" style={{ color: "var(--primary)" }}>
-            HomeworkHelper
+      <footer className="w-full py-16 px-6 border-t" style={{ borderColor: "var(--outline-variant)", background: "var(--surface)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+            <div>
+              <p className="text-2xl font-extrabold mb-3" style={{ color: "var(--primary)" }}>
+                HomeworkHelper
+              </p>
+              <p className="text-sm leading-relaxed max-w-sm" style={{ color: "var(--on-surface-variant)" }}>
+                Your AI study buddy for planning homework, tracking progress, and collaborating with classmates.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: "var(--on-surface)" }}>
+                Product
+              </p>
+              <div className="flex flex-col gap-3 text-sm font-medium" style={{ color: "var(--on-surface-variant)" }}>
+                <Link href="/app/" className="hover:text-current transition-colors">Launch Web App</Link>
+                <Link href="https://github.com/anpuop1511/homework-helper/releases/latest" target="_blank" className="hover:text-current transition-colors">Download Android</Link>
+                <a href="#faq" className="hover:text-current transition-colors">FAQ</a>
+                <Link href="/changelog" className="hover:text-current transition-colors">Changelog</Link>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: "var(--on-surface)" }}>
+                Community & Legal
+              </p>
+              <div className="flex flex-col gap-3 text-sm font-medium" style={{ color: "var(--on-surface-variant)" }}>
+                <Link href="https://github.com/anpuop1511/homework-helper" target="_blank" className="hover:text-current transition-colors">GitHub Repository</Link>
+                <Link href="https://github.com/anpuop1511/homework-helper/issues" target="_blank" className="hover:text-current transition-colors">Report an Issue</Link>
+                <Link href="/privacy" className="hover:text-current transition-colors">Privacy Policy</Link>
+                <Link href="/terms" className="hover:text-current transition-colors">Terms of Service</Link>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 text-sm font-medium" style={{ color: "var(--on-surface-variant)" }}>
-            <Link href="https://github.com/anpuop1511/homework-helper" target="_blank" className="hover:text-current transition-colors">GitHub Repository</Link>
-            <Link href="/changelog" className="hover:text-current transition-colors">Changelog</Link>
-            <Link href="/privacy" className="hover:text-current transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-current transition-colors">Terms of Service</Link>
+
+          <div className="mt-10 pt-6 border-t flex flex-col md:flex-row gap-3 justify-between text-sm" style={{ borderColor: "var(--outline-variant)", color: "var(--on-surface-variant)" }}>
+            <p>© {currentYear} HomeworkHelper. All rights reserved.</p>
+            <p>Built for students worldwide.</p>
           </div>
         </div>
       </footer>
