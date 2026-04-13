@@ -77,13 +77,35 @@ const faqData = {
         "Not yet. Mobile browsers do not expose the hardware APIs needed for the NFC bump flow, so web users should use invites or QR.",
     },
   ],
+  android: [
+    {
+      question: "Is the Android app better than web?",
+      answer:
+        "For Android users, the native app gives the best performance and deepest device integration, including smoother animations and better background behavior.",
+    },
+    {
+      question: "Where do I download the Android build?",
+      answer:
+        "Use the latest release link on this website. It points to the newest Android build published in the GitHub Releases page.",
+    },
+    {
+      question: "Does Android support NFC friend bump?",
+      answer:
+        "Yes. The native Android app supports NFC bump for quick friend connections on compatible devices.",
+    },
+    {
+      question: "Do I need Google Play to install?",
+      answer:
+        "No. You can install directly from the release APK. You may need to allow installation from unknown sources on your device settings.",
+    },
+  ],
 } as const;
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState("dashboard");
   const [theme, setTheme] = useState<"light" | "dark" | "auto">("auto");
-  const [faqCategory, setFaqCategory] = useState<"general" | "ios">("general");
+  const [faqCategory, setFaqCategory] = useState<"general" | "ios" | "android">("general");
   const [faqSearch, setFaqSearch] = useState("");
 
   useEffect(() => {
@@ -437,6 +459,16 @@ export default function Home() {
                   }}
                 >
                   🍎 iPhone
+                </button>
+                <button
+                  onClick={() => setFaqCategory("android")}
+                  className="px-4 py-2 rounded-full text-sm font-semibold transition-colors"
+                  style={{
+                    background: faqCategory === "android" ? "var(--primary-container)" : "transparent",
+                    color: faqCategory === "android" ? "var(--on-primary-container)" : "var(--on-surface-variant)",
+                  }}
+                >
+                  🤖 Android
                 </button>
               </div>
 
