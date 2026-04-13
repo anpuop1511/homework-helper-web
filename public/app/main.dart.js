@@ -51704,7 +51704,7 @@ $1$scrollbars(a){return this.H(this,A.M("call","$1$scrollbars",0,[a],["scrollbar
 $3$onDone$onError(a,b,c){return this.H(this,A.M("call","$3$onDone$onError",0,[a,b,c],["onDone","onError"],0))},
 $2$projectId$title(a,b){return this.H(this,A.M("call","$2$projectId$title",0,[a,b],["projectId","title"],0))},
 $3$projectId$status$taskId(a,b,c){return this.H(this,A.M("call","$3$projectId$status$taskId",0,[a,b,c],["projectId","status","taskId"],0))},
-$3$authorHandle$projectId$text(a,b,c){return this.H(this,A.M("call","$3$authorHandle$projectId$text",0,[a,b,c],["authorHandle","projectId","text"],0))},
+$3$authorUsername$projectId$text(a,b,c){return this.H(this,A.M("call","$3$authorUsername$projectId$text",0,[a,b,c],["authorUsername","projectId","text"],0))},
 $1$inherit(a){return this.H(this,A.M("call","$1$inherit",0,[a],["inherit"],0))},
 $3$imperativeRemoval$isReplaced(a,b,c){return this.H(this,A.M("call","$3$imperativeRemoval$isReplaced",0,[a,b,c],["imperativeRemoval","isReplaced"],0))},
 $3$color$fontSize$shadows(a,b,c){return this.H(this,A.M("call","$3$color$fontSize$shadows",0,[a,b,c],["color","fontSize","shadows"],0))},
@@ -111282,7 +111282,7 @@ cz(){var s=this,r=s.d
 return A.aa(["name",s.b,"description",s.c,"createdAt",A.aFB(1000*r.a+r.b),"ownerUid",s.e,"memberUids",s.f],t.N,t.z)}}
 A.j1.prototype={
 cz(){var s=this,r=s.e
-return A.aa(["authorUid",s.b,"authorHandle",s.c,"text",s.d,"createdAt",A.aFB(1000*r.a+r.b)],t.N,t.z)}}
+return A.aa(["authorUid",s.b,"authorUsername",s.c,"text",s.d,"createdAt",A.aFB(1000*r.a+r.b)],t.N,t.z)}}
 A.ji.prototype={
 cz(){var s=this,r=s.e
 return A.aa(["title",s.b,"assigneeUid",s.c,"status",s.d.b,"createdAt",A.aFB(1000*r.a+r.b)],t.N,t.z)}}
@@ -112556,7 +112556,8 @@ B.b.ga7(a.b.b.a)
 s=a.tJ(0)
 r=A.Y(s.h(0,"authorUid"))
 if(r==null)r=""
-q=A.Y(s.h(0,"authorHandle"))
+q=A.Y(s.h(0,"authorUsername"))
+if(q==null)q=A.Y(s.h(0,"authorHandle"))
 if(q==null)q=""
 p=A.Y(s.h(0,"text"))
 if(p==null)p=""
@@ -117649,7 +117650,7 @@ case 3:f=a3
 p=5
 l=l.b9("users").bf(a1).b9("friendRequests").bf(B.b.ga7(f.a.b.a))
 j=j.K9()
-g=A.nL(A.aa(["fromUid",c,"fromHandle",d,"createdAt",new A.mP(j,j),"requestId",B.b.ga7(f.a.b.a)],h,g))
+g=A.nL(A.aa(["fromUid",c,"fromUsername",d,"createdAt",new A.mP(j,j),"requestId",B.b.ga7(f.a.b.a)],h,g))
 g.toString
 s=8
 return A.i(l.a.fV(0,g,null),$async$wV)
