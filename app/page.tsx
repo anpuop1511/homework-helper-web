@@ -158,6 +158,9 @@ export default function Home() {
             <button onClick={toggleTheme} className="text-2xl hover:scale-110 transition-transform" title="Toggle Theme">
               {theme === "dark" ? "☀️" : "🌙"}
             </button>
+            <Link href="/app/" className="m3-button-tonal">
+              Web App
+            </Link>
             <Link href="https://github.com/anpuop1511/homework-helper/releases/latest" target="_blank" className="m3-button-filled">
               Download
             </Link>
