@@ -167,24 +167,6 @@ const learningJourney = [
   },
 ];
 
-const socialProof = [
-  {
-    quote:
-      "I stopped missing deadlines because everything sits in one place and the voice help is actually useful.",
-    name: "High school student",
-  },
-  {
-    quote:
-      "The assignment progress and group boards made team projects less chaotic in our class.",
-    name: "Student project lead",
-  },
-  {
-    quote:
-      "The web app worked great on my iPhone home screen. It feels much faster than the tools I used before.",
-    name: "iOS web user",
-  },
-];
-
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -266,6 +248,11 @@ export default function Home() {
 
         <div className="relative z-10 max-w-5xl text-center space-y-8 fade-in-up">
           
+          <Link href="/changelog" className="inline-flex items-center gap-3 px-4 py-2 rounded-full text-sm font-semibold transition-transform hover:scale-105" style={{ background: "var(--primary-container)", color: "var(--on-primary-container)" }}>
+            <span className="flex w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+            First public Android release is live now. See v2.7.0 in the changelog.
+          </Link>
+
           <Link href="/app/" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-transform" style={{ background: "var(--secondary-container)", color: "var(--on-secondary-container)" }}>
             <span className="flex w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             🎉 We're live on the Web! Try out Homework Helper directly in your browser.
