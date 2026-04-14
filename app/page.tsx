@@ -248,15 +248,54 @@ export default function Home() {
 
         <div className="relative z-10 max-w-5xl text-center space-y-8 fade-in-up">
           
-          <Link href="/changelog" className="inline-flex items-center gap-3 px-4 py-2 rounded-full text-sm font-semibold transition-transform hover:scale-105" style={{ background: "var(--primary-container)", color: "var(--on-primary-container)" }}>
-            <span className="flex w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            First public Android release is live now. See v2.7.0 in the changelog.
-          </Link>
+          <div className="mx-auto max-w-4xl rounded-[32px] p-4 md:p-6 border shadow-2xl text-left" style={{ background: "linear-gradient(135deg, rgba(255,179,71,0.18), rgba(84,110,255,0.16), rgba(255,102,196,0.14))", borderColor: "rgba(255,255,255,0.12)" }}>
+            <div className="flex flex-col gap-4">
+              <Link
+                href="https://github.com/anpuop1511/homework-helper/releases/tag/v2.7.0"
+                target="_blank"
+                className="inline-flex items-center gap-3 px-4 py-2 rounded-full text-sm font-semibold transition-transform hover:scale-105 w-fit"
+                style={{ background: "var(--primary-container)", color: "var(--on-primary-container)" }}
+              >
+                <span className="flex w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                Android first public release is live. Open v2.7.0 on GitHub.
+              </Link>
 
-          <Link href="/app/" className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium hover:scale-105 transition-transform" style={{ background: "var(--secondary-container)", color: "var(--on-secondary-container)" }}>
-            <span className="flex w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-            🎉 We're live on the Web! Try out Homework Helper directly in your browser.
-          </Link>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="rounded-[24px] p-5 md:p-6" style={{ background: "rgba(255,255,255,0.82)", color: "#101114" }}>
+                  <p className="text-xs uppercase tracking-[0.22em] font-bold mb-3" style={{ color: "#5f5f00" }}>Launch Theme</p>
+                  <h3 className="text-2xl font-extrabold mb-2">Android release</h3>
+                  <p className="text-sm md:text-base leading-relaxed mb-4" style={{ color: "rgba(16,17,20,0.78)" }}>
+                    The first public Android build is out now with the v2.7.0 public release notes on GitHub.
+                  </p>
+                  <Link
+                    href="https://github.com/anpuop1511/homework-helper/releases/latest"
+                    target="_blank"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-semibold shadow-lg transition-transform hover:scale-105"
+                    style={{ background: "#101114", color: "#ffffff" }}
+                  >
+                    Get the Android release
+                    <span aria-hidden="true">↗</span>
+                  </Link>
+                </div>
+
+                <div className="rounded-[24px] p-5 md:p-6" style={{ background: "rgba(16,17,20,0.7)", color: "#f8f8fb" }}>
+                  <p className="text-xs uppercase tracking-[0.22em] font-bold mb-3" style={{ color: "#8ad6ff" }}>Web App</p>
+                  <h3 className="text-2xl font-extrabold mb-2">Ready in the browser</h3>
+                  <p className="text-sm md:text-base leading-relaxed mb-4" style={{ color: "rgba(248,248,251,0.82)" }}>
+                    The web experience stays grouped beside the release so people can jump straight into Homework Helper on any device.
+                  </p>
+                  <Link
+                    href="/app/"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full font-semibold transition-transform hover:scale-105"
+                    style={{ background: "#f8f8fb", color: "#101114" }}
+                  >
+                    Launch the web app
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <h1 className="text-5xl sm:text-7xl md:text-8xl font-extrabold tracking-tighter leading-tight">
             Learn smarter with your <br className="hidden md:block"/>
