@@ -372,31 +372,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Outcomes / Social Proof */}
-      <section className="py-24 px-6" style={{ background: "var(--surface-container-lowest)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12 fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-tight">Students say it feels easier to stay consistent.</h2>
-            <p className="text-xl max-w-2xl" style={{ color: "var(--on-surface-variant)" }}>
-              Real study habits beat last-minute cramming. Homework Helper is designed around that principle.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {socialProof.map((item) => (
-              <blockquote key={item.name} className="m3-card p-8 fade-in-up">
-                <p className="text-lg leading-relaxed mb-6" style={{ color: "var(--on-surface)" }}>
-                  “{item.quote}”
-                </p>
-                <cite className="text-sm not-italic font-semibold" style={{ color: "var(--on-surface-variant)" }}>
-                  {item.name}
-                </cite>
-              </blockquote>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Expressive Graphic Divider */}
       <div className="w-full flex justify-center py-12">
         <div className="h-2 w-32 rounded-full" style={{ background: "var(--surface-container-highest)" }}></div>
