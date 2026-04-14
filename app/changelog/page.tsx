@@ -7,6 +7,21 @@ export const metadata = {
 
 const updates = [
   {
+    version: "v2.7.0",
+    date: "April 2026",
+    title: "Public Release 🎉",
+    changes: [
+      "Welcome to the first public release of Homework Helper.",
+      "Friends, requests, and pending items are organized more clearly.",
+      "Real-time updates for friend request activity are faster and easier to follow.",
+      "The social page is scrollable on Web so you can see everything.",
+      "Settings, Battle Pass, and AI Chat all received UI improvements for a cleaner experience.",
+      "A customizable bottom navigation bar now keeps Home pinned for consistency.",
+      "Some features may require a user-provided API key in Settings.",
+      "If you find an issue, please open a GitHub Issue to help shape the next update.",
+    ],
+  },
+  {
     version: "v1.2.0",
     date: "April 12, 2026",
     title: "The Web Update 🌐",
@@ -50,6 +65,14 @@ export default function Changelog() {
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Changelog & Updates</h1>
           <p className="text-lg" style={{ color: "var(--on-surface-variant)" }}>Discover the latest features, fixes, and improvements.</p>
+        </div>
+
+        <div className="m3-card !rounded-3xl p-8 md:p-10 mb-10" style={{ background: "var(--primary-container)", color: "var(--on-primary-container)" }}>
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] mb-3">Android first public release</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Homework Helper is now public.</h2>
+          <p className="text-lg leading-relaxed max-w-3xl">
+            v2.7.0 is the first public version of the app. Check the GitHub releases page for the full release notes, install steps, and future updates.
+          </p>
         </div>
 
         <div className="space-y-8">
