@@ -12,6 +12,7 @@ export default function InviteRoute() {
       appScheme={`homeworkhelper://invite/${username}`}
       title={`Friend Request from @${username}`}
       description="Opening the app to add this friend to your Social Quad..."
+      webAppHref={`/app/?open=invite&username=${encodeURIComponent(username)}`}
     />
   );
 }

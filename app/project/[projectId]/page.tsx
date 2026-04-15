@@ -12,6 +12,7 @@ export default function ProjectRoute() {
       appScheme={`homeworkhelper://project/${projectId}`}
       title="Join Group Project"
       description="Opening the app to view or join this shared project..."
+      webAppHref={`/app/?open=project&projectId=${encodeURIComponent(projectId)}`}
     />
   );
 }

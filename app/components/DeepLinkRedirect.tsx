@@ -7,10 +7,12 @@ export default function DeepLinkRedirect({
   appScheme,
   title,
   description,
+  webAppHref = "/app/",
 }: {
   appScheme: string;
   title: string;
   description: string;
+  webAppHref?: string;
 }) {
   const [mounted, setMounted] = useState(false);
 
@@ -45,6 +47,12 @@ export default function DeepLinkRedirect({
           <a href={appScheme} className="m3-button-filled text-lg">
             Open in App
           </a>
+          <Link
+            href={webAppHref}
+            className="m3-button-tonal text-lg"
+          >
+            Open in Web App
+          </Link>
           <Link
             href="https://github.com/anpuop1511/homework-helper/releases/latest"
             target="_blank"

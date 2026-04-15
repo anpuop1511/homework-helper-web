@@ -12,6 +12,7 @@ export default function ProfileRoute() {
       appScheme={`homeworkhelper://profile/${username}`}
       title={`@${username}`}
       description="Redirecting you to view this profile in the Homework Helper app..."
+      webAppHref={`/app/?open=profile&username=${encodeURIComponent(username)}`}
     />
   );
 }
