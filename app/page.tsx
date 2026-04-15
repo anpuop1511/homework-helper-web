@@ -205,6 +205,7 @@ export default function Home() {
   const [theme, setTheme] = useState<"light" | "dark" | "auto">("auto");
   const [faqCategory, setFaqCategory] = useState<"general" | "ios" | "android">("general");
   const [faqSearch, setFaqSearch] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     // Check initial system preference or localStorage
@@ -246,13 +247,12 @@ export default function Home() {
     <main className="min-h-screen selection:bg-blue-500/30" style={{ background: "var(--surface)", color: "var(--on-surface)" }}>
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 transition-all duration-300" style={{ background: scrollY > 20 ? "var(--surface-container-low)" : "transparent" }}>
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between relative">
           <div className="text-2xl font-bold tracking-tight" style={{ color: "var(--primary)" }}>
             HomeworkHelper
           </div>
           <div className="hidden md:flex items-center gap-8 font-medium">
             <a href="#features" className="hover:opacity-70 transition-opacity">Features</a>
-            <a href="#materials" className="hover:opacity-70 transition-opacity">Materials</a>
             <a href="#roadmap" className="hover:opacity-70 transition-opacity">Roadmap</a>
             <Link href="/pricing" className="hover:opacity-70 transition-opacity">Pricing</Link>
             <a href="#showcase" className="hover:opacity-70 transition-opacity">Showcase</a>
@@ -260,12 +260,34 @@ export default function Home() {
             <button onClick={toggleTheme} className="text-2xl hover:scale-110 transition-transform" title="Toggle Theme">
               {theme === "dark" ? "☀️" : "🌙"}
             </button>
-            <Link href="/app/" className="m3-button-tonal">
-              Web App
-            </Link>
-            <Link href="https://github.com/anpuop1511/homework-helper/releases/latest" target="_blank" className="m3-button-filled">
-              Download
-            </Link>
+          </div>
+
+          <div className="md:hidden flex items-center gap-3">
+            <button onClick={toggleTheme} className="text-2xl" title="Toggle Theme">
+              {theme === "dark" ? "☀️" : "🌙"}
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              className="px-3 py-2 rounded-xl font-semibold"
+              style={{ background: "var(--surface-container-high)", color: "var(--on-surface)" }}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? "Close" : "Menu"}
+            </button>
+          </div>
+
+          <div
+            className={`md:hidden absolute left-0 right-0 top-full mt-2 transition-all duration-200 ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+          >
+            <div className="m3-card !rounded-2xl p-4 mx-1" style={{ background: "var(--surface-container-low)" }}>
+              <div className="flex flex-col gap-3 font-medium">
+                <a href="#features" onClick={() => setMobileMenuOpen(false)} className="py-2">Features</a>
+                <a href="#roadmap" onClick={() => setMobileMenuOpen(false)} className="py-2">Roadmap</a>
+                <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className="py-2">Pricing</Link>
+                <a href="#showcase" onClick={() => setMobileMenuOpen(false)} className="py-2">Showcase</a>
+                <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="py-2">FAQ</a>
+              </div>
+            </div>
           </div>
         </div>
       </nav>

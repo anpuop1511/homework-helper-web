@@ -40,10 +40,10 @@ export default function PricingPage() {
             className="text-sm uppercase tracking-[0.22em] font-semibold mb-4"
             style={{ color: "var(--primary)" }}
           >
-            Homework Helper Paid Plans
+            Always Free + Optional Plans
           </p>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-5">
-            Pick your study power-up.
+            Homework Helper is free. Upgrade if you want more.
           </h1>
           <p
             className="text-lg md:text-xl max-w-3xl mx-auto"
