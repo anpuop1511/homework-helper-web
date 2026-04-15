@@ -114517,7 +114517,7 @@ yN(a){return this.avd(a)},
 avd(a){var s=0,r=A.p(t.H),q,p=this,o,n,m,l,k,j,i
 var $async$yN=A.l(function(b,c){if(b===1)return A.m(c,r)
 for(;;)switch(s){case 0:s=3
-return A.i($.dY().Cp(a,"ladder_2026_04_20"),$async$yN)
+return A.i($.dY().Cp(a,"ladder_2026_04_24"),$async$yN)
 case 3:i=c
 if(i==null){s=1
 break}o=J.Y(i)
@@ -114550,7 +114550,7 @@ k=A.Q(k,A.v(k).c)
 j=n.c
 j=A.Q(j,A.v(j).c)
 s=7
-return A.i(m.Cy(k,j,"ladder_2026_04_20",l,h),$async$vd)
+return A.i(m.Cy(k,j,"ladder_2026_04_24",l,h),$async$vd)
 case 7:p=2
 s=6
 break
@@ -118434,7 +118434,7 @@ $S:0}
 A.a73.prototype={
 A(a){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e=null,d=A.ah(a,!0,t.py)
 switch(d.gld(0).a){case 0:s="Assignments Ladder \u2013 Starting Soon!"
-r="Complete assignments Apr 20\u201324 for big rewards."
+r="Complete assignments Apr 24\u201330 for big rewards."
 q=B.cI
 p="\u23f3"
 break
@@ -118525,7 +118525,7 @@ if(h==null)h=l.k2
 g=A.X(14)
 l=l.k3
 g=A.aa(a0,A.r(""+s+"d "+r+"h "+q+"m "+a1+"s",a0,a0,a0,a0,a0,A.cW().$4$color$fontSize$fontWeight$letterSpacing(l,20,B.au,1.2),a0,a0,a0),B.i,a0,a0,new A.a6(h,a0,a0,g,a0,a0,B.o),a0,a0,a0,B.Qv,a0,a0,a0)
-return A.aa(a0,A.au(A.b([m,B.bi,i,B.lo,g,B.T,A.r("Apr 20 \u2013 Apr 24, 2026",a0,a0,a0,a0,a0,A.aV(a0,a0,j?l:k,a0,a0,a0,a0,a0,a0,a0,a0,12,a0,a0,a0,a0,a0,!0,a0,a0,a0,a0,a0,a0,a0,a0),a0,a0,a0)],t.p),B.k,B.h,B.j),B.i,a0,a0,new A.a6(a0,a0,n,o,a0,new A.cE(B.aC,B.b6,B.a4,p,a0,a0),B.o),a0,a0,B.b7,B.aO,a0,a0,a0)
+return A.aa(a0,A.au(A.b([m,B.bi,i,B.lo,g,B.T,A.r("Apr 24 \u2013 Apr 30, 2026",a0,a0,a0,a0,a0,A.aV(a0,a0,j?l:k,a0,a0,a0,a0,a0,a0,a0,a0,12,a0,a0,a0,a0,a0,!0,a0,a0,a0,a0,a0,a0,a0,a0),a0,a0,a0)],t.p),B.k,B.h,B.j),B.i,a0,a0,new A.a6(a0,a0,n,o,a0,new A.cE(B.aC,B.b6,B.a4,p,a0,a0),B.o),a0,a0,B.b7,B.aO,a0,a0,a0)
 case 1:f=a1.gwb()
 e=a1.gGR()
 d=a1.gaND()
@@ -118535,7 +118535,7 @@ q=A.X(20)
 p=A.cx(A.W(80,B.aw.m()>>>16&255,B.aw.m()>>>8&255,B.aw.m()&255),1)
 o=t.p
 n=a.e
-a1=A.b([A.aG(A.b([A.aa(a0,a0,B.i,a0,a0,B.JO,a0,10,a0,a0,a0,a0,10),B.ar,A.r("Event Live! \xb7 Apr 20 \u2013 24",a0,a0,a0,a0,a0,A.aL().$3$color$fontSize$fontWeight(B.tf,15,B.r),a0,a0,a0)],o),B.k,B.de,B.j,0),B.lo,A.aG(A.b([new A.RK("Completed",""+a1.a,"\u2705",n,a0),new A.RK("Tiers Reached",""+f+" / 20","\ud83c\udfc5",n,a0)],o),B.k,B.p3,B.j,0)],o)
+a1=A.b([A.aG(A.b([A.aa(a0,a0,B.i,a0,a0,B.JO,a0,10,a0,a0,a0,a0,10),B.ar,A.r("Event Live! \xb7 Apr 24 \u2013 30",a0,a0,a0,a0,a0,A.aL().$3$color$fontSize$fontWeight(B.tf,15,B.r),a0,a0,a0)],o),B.k,B.de,B.j,0),B.lo,A.aG(A.b([new A.RK("Completed",""+a1.a,"\u2705",n,a0),new A.RK("Tiers Reached",""+f+" / 20","\ud83c\udfc5",n,a0)],o),B.k,B.p3,B.j,0)],o)
 if(f<20){m=n.rx
 l=m==null
 k=A.r("Tier "+e+" progress",a0,a0,a0,a0,a0,A.aV(a0,a0,l?n.k3:m,a0,a0,a0,a0,a0,a0,a0,a0,12,a0,a0,a0,a0,a0,!0,a0,a0,a0,a0,a0,a0,a0,a0),a0,a0,a0)
@@ -135598,8 +135598,8 @@ s($,"bDg","bjw",()=>new A.K())
 s($,"bCp","bja",()=>{var q="AIzaSyA4KoQWIUyoDZYte4pWUu46K-YXzIzLZRA"
 B.c.gai(q)
 return A.b5N(q,"1:911283793659:web:202e8c9f1de4db4f270a5e","hwhelp-9390f.firebaseapp.com",null,"G-006YK5TCNQ","911283793659","hwhelp-9390f","hwhelp-9390f.firebasestorage.app")})
-s($,"bCS","b97",()=>A.cL(2026,4,20,0,0,0,0))
-s($,"bCR","bjk",()=>A.cL(2026,4,25,0,0,0,0))
+s($,"bCS","b97",()=>A.cL(2026,4,24,0,0,0,0))
+s($,"bCR","bjk",()=>A.cL(2026,5,1,0,0,0,0))
 s($,"bCT","U0",()=>A.bpB())
 s($,"bHl","blV",()=>A.b5k(2026,4,14,0,0,0,0))
 s($,"bHX","bmm",()=>{var q=$.blV()
