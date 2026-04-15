@@ -451,7 +451,7 @@ export default function Home() {
       </section>
 
       {/* Roadmap Map Section */}
-      <section ref={roadmapSectionRef} id="roadmap" className="py-28 px-6 min-h-[220vh]" style={{ background: "var(--surface-container-lowest)" }}>
+      <section ref={roadmapSectionRef} id="roadmap" className="py-28 px-6 min-h-[200vh]" style={{ background: "var(--surface-container-lowest)" }}>
         <div className="max-w-6xl mx-auto">
           <div className="mb-14 md:mb-16 fade-in-up max-w-3xl">
             <p className="text-sm uppercase tracking-[0.22em] font-semibold mb-4" style={{ color: "var(--primary)" }}>
@@ -464,60 +464,60 @@ export default function Home() {
           </div>
 
           <div className="sticky top-24">
-            <div className="m3-card !rounded-[32px] p-6 md:p-10" style={{ background: "var(--surface)" }}>
-              <div className="relative h-20 md:h-24 mb-8 md:mb-10">
-                <div
-                  className="absolute top-1/2 left-0 right-0 h-1 rounded-full -translate-y-1/2"
-                  style={{ background: "var(--surface-container-highest)" }}
-                />
-                <div
-                  className="absolute top-1/2 left-0 h-1 rounded-full -translate-y-1/2 transition-all duration-300"
-                  style={{
-                    width: `${roadmapProgress * 100}%`,
-                    background: "linear-gradient(90deg, var(--primary), var(--secondary))",
-                  }}
-                />
+            <div className="m3-card !rounded-[32px] p-5 md:p-8" style={{ background: "var(--surface)" }}>
+              <div className="relative h-18 md:h-22 mb-8 md:mb-10">
+                  <div
+                    className="absolute top-1/2 left-[10%] right-[10%] h-1 rounded-full -translate-y-1/2"
+                    style={{ background: "var(--surface-container-highest)" }}
+                  />
+                  <div
+                    className="absolute top-1/2 left-[10%] h-1 rounded-full -translate-y-1/2 transition-all duration-300"
+                    style={{
+                      width: `${roadmapProgress * 80}%`,
+                      background: "linear-gradient(90deg, var(--primary), var(--secondary))",
+                    }}
+                  />
 
-                {roadmapMilestones.map((item, idx) => {
-                  const position = (idx / (roadmapMilestones.length - 1)) * 100;
-                  const isActive = idx <= activeRoadmapIndex;
-                  return (
-                    <div
-                      key={item.title}
-                      className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
-                      style={{ left: `${position}%` }}
-                    >
+                  {roadmapMilestones.map((item, idx) => {
+                    const position = 10 + (idx / (roadmapMilestones.length - 1)) * 80;
+                    const isActive = idx <= activeRoadmapIndex;
+                    return (
                       <div
-                        className="w-6 h-6 md:w-7 md:h-7 rounded-full border-4 transition-all duration-300"
-                        style={{
-                          background: isActive ? "var(--primary)" : "var(--surface)",
-                          borderColor: isActive ? "var(--primary-container)" : "var(--outline-variant)",
-                          boxShadow: isActive ? "0 0 0 8px color-mix(in srgb, var(--primary) 16%, transparent)" : "none",
-                        }}
-                      />
-                      <p
-                        className="mt-2 text-[11px] md:text-xs font-bold text-center whitespace-nowrap"
-                        style={{ color: isActive ? "var(--primary)" : "var(--on-surface-variant)" }}
+                        key={item.title}
+                        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
+                        style={{ left: `${position}%` }}
                       >
-                        {item.date}
-                      </p>
-                    </div>
-                  );
-                })}
+                        <div
+                          className="w-6 h-6 md:w-7 md:h-7 rounded-full border-4 transition-all duration-300"
+                          style={{
+                            background: isActive ? "var(--primary)" : "var(--surface)",
+                            borderColor: isActive ? "var(--primary-container)" : "var(--outline-variant)",
+                            boxShadow: isActive ? "0 0 0 8px color-mix(in srgb, var(--primary) 16%, transparent)" : "none",
+                          }}
+                        />
+                        <p
+                          className="mt-2 text-[10px] md:text-xs font-bold text-center whitespace-nowrap"
+                          style={{ color: isActive ? "var(--primary)" : "var(--on-surface-variant)" }}
+                        >
+                          {item.date}
+                        </p>
+                      </div>
+                    );
+                  })}
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6 md:gap-8 items-start">
-                <article className="m3-card p-6 md:p-8 !rounded-3xl" style={{ background: "var(--surface-container-low)" }}>
+                <article className="m3-card p-5 md:p-7 !rounded-3xl" style={{ background: "var(--surface-container-low)" }}>
                   <p
                     className="text-xs uppercase tracking-[0.2em] font-bold mb-3"
                     style={{ color: activeRoadmapItem.status === "released" ? "var(--primary)" : "var(--secondary)" }}
                   >
                     {activeRoadmapItem.status === "released" ? "Live" : "Up Next"}
                   </p>
-                  <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">{activeRoadmapItem.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">{activeRoadmapItem.title}</h3>
                   <ul className="space-y-3">
                     {activeRoadmapItem.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-3 text-base md:text-lg" style={{ color: "var(--on-surface-variant)" }}>
+                      <li key={detail} className="flex items-start gap-3 text-base" style={{ color: "var(--on-surface-variant)" }}>
                         <span className="mt-2 inline-flex w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
                         <span>{detail}</span>
                       </li>
@@ -525,18 +525,18 @@ export default function Home() {
                   </ul>
                 </article>
 
-                <div className="m3-card p-6 md:p-8 !rounded-3xl" style={{ background: "var(--surface-container-low)" }}>
+                <div className="m3-card p-5 md:p-7 !rounded-3xl" style={{ background: "var(--surface-container-low)" }}>
                   <p className="text-sm font-semibold mb-4" style={{ color: "var(--on-surface)" }}>
                     Route checkpoints
                   </p>
                   <div className="space-y-3">
                     {roadmapMilestones.map((item, idx) => (
-                      <div key={`${item.title}-checkpoint`} className="flex items-center gap-3">
+                      <div key={`${item.title}-checkpoint`} className="flex items-start gap-3">
                         <span
-                          className="inline-flex w-2.5 h-2.5 rounded-full"
+                          className="inline-flex w-2.5 h-2.5 rounded-full mt-1.5 shrink-0"
                           style={{ background: idx <= activeRoadmapIndex ? "var(--primary)" : "var(--outline-variant)" }}
                         />
-                        <span style={{ color: idx === activeRoadmapIndex ? "var(--on-surface)" : "var(--on-surface-variant)" }}>
+                        <span className="leading-relaxed" style={{ color: idx === activeRoadmapIndex ? "var(--on-surface)" : "var(--on-surface-variant)" }}>
                           {item.title}
                         </span>
                       </div>
