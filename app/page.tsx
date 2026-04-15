@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 const FAQItem = ({ question, answer }: { question: string; answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -188,18 +188,11 @@ const roadmapMilestones = [
   },
   {
     date: "05/01",
-    title: "Finals Season Feature Drop",
+    title: "Finals + Season 2 + Themes and Shop",
     status: "upcoming",
     details: [
-      "Finals season update lands with focused feature upgrades.",
+      "Finals season feature drop lands on 5/1.",
       "Season 2 of the Battle Pass launches on 5/1.",
-    ],
-  },
-  {
-    date: "05/01",
-    title: "The Last Jump: Themes + Shop",
-    status: "upcoming",
-    details: [
       "New themes drop on 5/1.",
       "New season shop items also drop on 5/1.",
     ],
@@ -212,8 +205,6 @@ export default function Home() {
   const [theme, setTheme] = useState<"light" | "dark" | "auto">("auto");
   const [faqCategory, setFaqCategory] = useState<"general" | "ios" | "android">("general");
   const [faqSearch, setFaqSearch] = useState("");
-  const [roadmapProgress, setRoadmapProgress] = useState(0);
-  const roadmapSectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     // Check initial system preference or localStorage
@@ -228,16 +219,6 @@ export default function Home() {
 
     const handleScroll = () => {
       setScrollY(window.scrollY);
-
-      const section = roadmapSectionRef.current;
-      if (section) {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const travelDistance = Math.max(sectionHeight - window.innerHeight, 1);
-        const rawProgress = (window.scrollY - sectionTop) / travelDistance;
-        const clampedProgress = Math.min(1, Math.max(0, rawProgress));
-        setRoadmapProgress(clampedProgress);
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -258,12 +239,6 @@ export default function Home() {
     if (!q) return true;
     return item.question.toLowerCase().includes(q) || item.answer.toLowerCase().includes(q);
   });
-
-  const activeRoadmapIndex = Math.min(
-    roadmapMilestones.length - 1,
-    Math.round(roadmapProgress * (roadmapMilestones.length - 1))
-  );
-  const activeRoadmapItem = roadmapMilestones[activeRoadmapIndex];
 
   const currentYear = new Date().getFullYear();
 
@@ -451,7 +426,7 @@ export default function Home() {
       </section>
 
       {/* Roadmap Map Section */}
-      <section ref={roadmapSectionRef} id="roadmap" className="py-28 px-6 min-h-[200vh]" style={{ background: "var(--surface-container-lowest)" }}>
+      <section id="roadmap" className="py-28 px-6" style={{ background: "var(--surface-container-lowest)" }}>
         <div className="max-w-6xl mx-auto">
           <div className="mb-14 md:mb-16 fade-in-up max-w-3xl">
             <p className="text-sm uppercase tracking-[0.22em] font-semibold mb-4" style={{ color: "var(--primary)" }}>
@@ -459,91 +434,57 @@ export default function Home() {
             </p>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Roadmap Route</h2>
             <p className="text-xl" style={{ color: "var(--on-surface-variant)" }}>
-              Scroll down and the roadmap auto-advances left to right. Follow the next jumps: social + feed upgrades, finals-season features, Battle Pass Season 2, and a new themes + shop drop on 5/1.
+              Follow the roadmap top to bottom. The 5/1 updates are grouped together so the timeline is easier to scan.
             </p>
           </div>
 
-          <div className="sticky top-24">
-            <div className="m3-card !rounded-[32px] p-5 md:p-8" style={{ background: "var(--surface)" }}>
-              <div className="relative h-18 md:h-22 mb-8 md:mb-10">
+          <div className="relative pl-7 md:pl-10">
+            <div
+              className="absolute left-[10px] md:left-[14px] top-0 bottom-0 w-[3px] rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to bottom, var(--primary-container) 0%, var(--primary) 45%, var(--secondary) 100%)",
+              }}
+            />
+
+            <div className="space-y-6 md:space-y-8">
+              {roadmapMilestones.map((item, idx) => (
+                <article
+                  key={item.title}
+                  className="relative m3-card p-6 md:p-8 fade-in-up"
+                  style={{ background: idx % 2 === 0 ? "var(--surface-container-low)" : "var(--surface)" }}
+                >
                   <div
-                    className="absolute top-1/2 left-[10%] right-[10%] h-1 rounded-full -translate-y-1/2"
-                    style={{ background: "var(--surface-container-highest)" }}
-                  />
-                  <div
-                    className="absolute top-1/2 left-[10%] h-1 rounded-full -translate-y-1/2 transition-all duration-300"
+                    className="absolute -left-[23px] md:-left-[28px] top-8 w-4 h-4 md:w-5 md:h-5 rounded-full border-4"
                     style={{
-                      width: `${roadmapProgress * 80}%`,
-                      background: "linear-gradient(90deg, var(--primary), var(--secondary))",
+                      background: item.status === "released" ? "var(--primary)" : "var(--secondary-container)",
+                      borderColor: "var(--surface-container-lowest)",
                     }}
                   />
 
-                  {roadmapMilestones.map((item, idx) => {
-                    const position = 10 + (idx / (roadmapMilestones.length - 1)) * 80;
-                    const isActive = idx <= activeRoadmapIndex;
-                    return (
-                      <div
-                        key={item.title}
-                        className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2"
-                        style={{ left: `${position}%` }}
-                      >
-                        <div
-                          className="w-6 h-6 md:w-7 md:h-7 rounded-full border-4 transition-all duration-300"
-                          style={{
-                            background: isActive ? "var(--primary)" : "var(--surface)",
-                            borderColor: isActive ? "var(--primary-container)" : "var(--outline-variant)",
-                            boxShadow: isActive ? "0 0 0 8px color-mix(in srgb, var(--primary) 16%, transparent)" : "none",
-                          }}
-                        />
-                        <p
-                          className="mt-2 text-[10px] md:text-xs font-bold text-center whitespace-nowrap"
-                          style={{ color: isActive ? "var(--primary)" : "var(--on-surface-variant)" }}
-                        >
-                          {item.date}
-                        </p>
-                      </div>
-                    );
-                  })}
-              </div>
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
+                    <span
+                      className="px-3 py-1 rounded-full text-xs md:text-sm font-bold"
+                      style={{
+                        background: item.status === "released" ? "var(--primary-container)" : "var(--surface-container-high)",
+                        color: item.status === "released" ? "var(--on-primary-container)" : "var(--on-surface)",
+                      }}
+                    >
+                      {item.date}
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">{item.title}</h3>
+                  </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-6 md:gap-8 items-start">
-                <article className="m3-card p-5 md:p-7 !rounded-3xl" style={{ background: "var(--surface-container-low)" }}>
-                  <p
-                    className="text-xs uppercase tracking-[0.2em] font-bold mb-3"
-                    style={{ color: activeRoadmapItem.status === "released" ? "var(--primary)" : "var(--secondary)" }}
-                  >
-                    {activeRoadmapItem.status === "released" ? "Live" : "Up Next"}
-                  </p>
-                  <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-4">{activeRoadmapItem.title}</h3>
-                  <ul className="space-y-3">
-                    {activeRoadmapItem.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-3 text-base" style={{ color: "var(--on-surface-variant)" }}>
+                  <ul className="space-y-2.5">
+                    {item.details.map((detail) => (
+                      <li key={detail} className="flex items-start gap-3 text-base md:text-lg" style={{ color: "var(--on-surface-variant)" }}>
                         <span className="mt-2 inline-flex w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
                         <span>{detail}</span>
                       </li>
                     ))}
                   </ul>
                 </article>
-
-                <div className="m3-card p-5 md:p-7 !rounded-3xl" style={{ background: "var(--surface-container-low)" }}>
-                  <p className="text-sm font-semibold mb-4" style={{ color: "var(--on-surface)" }}>
-                    Route checkpoints
-                  </p>
-                  <div className="space-y-3">
-                    {roadmapMilestones.map((item, idx) => (
-                      <div key={`${item.title}-checkpoint`} className="flex items-start gap-3">
-                        <span
-                          className="inline-flex w-2.5 h-2.5 rounded-full mt-1.5 shrink-0"
-                          style={{ background: idx <= activeRoadmapIndex ? "var(--primary)" : "var(--outline-variant)" }}
-                        />
-                        <span className="leading-relaxed" style={{ color: idx === activeRoadmapIndex ? "var(--on-surface)" : "var(--on-surface-variant)" }}>
-                          {item.title}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
