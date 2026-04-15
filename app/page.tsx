@@ -254,6 +254,7 @@ export default function Home() {
             <a href="#features" className="hover:opacity-70 transition-opacity">Features</a>
             <a href="#materials" className="hover:opacity-70 transition-opacity">Materials</a>
             <a href="#roadmap" className="hover:opacity-70 transition-opacity">Roadmap</a>
+            <Link href="/pricing" className="hover:opacity-70 transition-opacity">Pricing</Link>
             <a href="#showcase" className="hover:opacity-70 transition-opacity">Showcase</a>
             <a href="#faq" className="hover:opacity-70 transition-opacity">FAQ</a>
             <button onClick={toggleTheme} className="text-2xl hover:scale-110 transition-transform" title="Toggle Theme">
@@ -838,6 +839,7 @@ export default function Home() {
               <div className="flex flex-col gap-3 text-sm font-medium" style={{ color: "var(--on-surface-variant)" }}>
                 <Link href="/app/" className="hover:text-current transition-colors">Launch Web App</Link>
                 <Link href="https://github.com/anpuop1511/homework-helper/releases/latest" target="_blank" className="hover:text-current transition-colors">Download Android</Link>
+                <Link href="/pricing" className="hover:text-current transition-colors">Pricing</Link>
                 <a href="#materials" className="hover:text-current transition-colors">Study Materials</a>
                 <a href="#faq" className="hover:text-current transition-colors">FAQ</a>
                 <Link href="/changelog" className="hover:text-current transition-colors">Changelog</Link>
