@@ -167,6 +167,45 @@ const learningJourney = [
   },
 ];
 
+const roadmapMilestones = [
+  {
+    date: "Now",
+    title: "v2.7.0 Public Launch",
+    status: "released",
+    details: [
+      "The first public Android release is live.",
+      "Roadmap focus now shifts to bigger social and seasonal drops.",
+    ],
+  },
+  {
+    date: "Coming Soon",
+    title: "Next Social Wave",
+    status: "upcoming",
+    details: [
+      "New social features are in progress.",
+      "A new feed experience is coming soon.",
+    ],
+  },
+  {
+    date: "05/01",
+    title: "Finals Season Feature Drop",
+    status: "upcoming",
+    details: [
+      "Finals season update lands with focused feature upgrades.",
+      "Season 2 of the Battle Pass launches on 5/1.",
+    ],
+  },
+  {
+    date: "05/01",
+    title: "The Last Jump: Themes + Shop",
+    status: "upcoming",
+    details: [
+      "New themes drop on 5/1.",
+      "New season shop items also drop on 5/1.",
+    ],
+  },
+];
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -221,6 +260,7 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-8 font-medium">
             <a href="#features" className="hover:opacity-70 transition-opacity">Features</a>
             <a href="#materials" className="hover:opacity-70 transition-opacity">Materials</a>
+            <a href="#roadmap" className="hover:opacity-70 transition-opacity">Roadmap</a>
             <a href="#showcase" className="hover:opacity-70 transition-opacity">Showcase</a>
             <a href="#faq" className="hover:opacity-70 transition-opacity">FAQ</a>
             <button onClick={toggleTheme} className="text-2xl hover:scale-110 transition-transform" title="Toggle Theme">
@@ -388,6 +428,71 @@ export default function Home() {
                 <p style={{ color: "var(--on-surface-variant)" }}>{item.description}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap Map Section */}
+      <section id="roadmap" className="py-28 px-6" style={{ background: "var(--surface-container-lowest)" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-14 md:mb-16 fade-in-up max-w-3xl">
+            <p className="text-sm uppercase tracking-[0.22em] font-semibold mb-4" style={{ color: "var(--primary)" }}>
+              As of v2.7.0
+            </p>
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Roadmap Route</h2>
+            <p className="text-xl" style={{ color: "var(--on-surface-variant)" }}>
+              Scroll the map and follow the next jumps: social + feed upgrades, finals-season features, Battle Pass Season 2, and a new themes and shop drop on 5/1.
+            </p>
+          </div>
+
+          <div className="relative pl-8 md:pl-12">
+            <div
+              className="absolute left-[14px] md:left-[22px] top-0 bottom-0 w-[4px] rounded-full"
+              style={{
+                background:
+                  "linear-gradient(to bottom, var(--primary-container) 0%, var(--primary) 35%, var(--secondary) 100%)",
+              }}
+            />
+
+            <div className="space-y-8 md:space-y-10">
+              {roadmapMilestones.map((item, idx) => (
+                <article
+                  key={item.title}
+                  className="relative m3-card p-6 md:p-8 fade-in-up"
+                  style={{ background: idx % 2 === 0 ? "var(--surface-container-low)" : "var(--surface)" }}
+                >
+                  <div
+                    className="absolute -left-[28px] md:-left-[34px] top-10 w-5 h-5 md:w-6 md:h-6 rounded-full border-4"
+                    style={{
+                      background: item.status === "released" ? "var(--primary)" : "var(--secondary-container)",
+                      borderColor: "var(--surface-container-lowest)",
+                    }}
+                  />
+
+                  <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 mb-5">
+                    <span
+                      className="px-4 py-2 rounded-full text-sm font-bold w-fit"
+                      style={{
+                        background: item.status === "released" ? "var(--primary-container)" : "var(--surface-container-high)",
+                        color: item.status === "released" ? "var(--on-primary-container)" : "var(--on-surface)",
+                      }}
+                    >
+                      {item.date}
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight">{item.title}</h3>
+                  </div>
+
+                  <ul className="space-y-3">
+                    {item.details.map((detail) => (
+                      <li key={detail} className="flex items-start gap-3 text-base md:text-lg" style={{ color: "var(--on-surface-variant)" }}>
+                        <span className="mt-2 inline-flex w-2 h-2 rounded-full" style={{ background: "var(--primary)" }} />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>
