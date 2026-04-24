@@ -35528,8 +35528,8 @@ b9p(a){switch(a.a){case 0:return"Verify your email"
 case 1:return"Reset your password"
 case 2:return"Recover email"
 case 3:return"Unknown action"}},
-blL(a){var s,r
-if(a.gqA(a)!=="hwhelper.tech")return!1
+blL(a){var s,r,q=a.gqA(a)
+if(q!=="hwhelper.tech"&&q!=="www.hwhelper.tech")return!1
 s=a.gdC(a).length===0||a.gdC(a)==="/"||a.gdC(a)==="/index.html"
 if(a.gqS().aj(0,"mode")&&a.gqS().aj(0,"oobCode")){r=!0
 if(!s)if(a.gdC(a)!=="/auth-handler")r=a.glm().length!==0&&B.b.gW(a.glm())==="auth-handler"}else r=!1
