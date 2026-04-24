@@ -353,7 +353,8 @@ export default function Home() {
           </h1>
           
           <p className="text-xl md:text-2xl max-w-3xl mx-auto font-medium" style={{ color: "var(--on-surface-variant)" }}>
-            Organize assignments, chat with Gemini AI using your voice, track your study streaks, and collaborate with your classmates seamlessly.
+            Plan assignments by class, sync with Google Classroom, use AI help in context,
+            and collaborate in group projects from the same workspace.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
@@ -524,7 +525,8 @@ export default function Home() {
           <div className="mb-16 md:mb-24 fade-in-up max-w-3xl">
             <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Everything you need, built right in.</h2>
             <p className="text-xl" style={{ color: "var(--on-surface-variant)" }}>
-              Homework Helper combines task management, artificial intelligence, and social collaboration natively.
+              Built for actual student workflows: organize classes, execute study sessions,
+              and stay aligned with friends and project teams.
             </p>
           </div>
 
@@ -532,47 +534,47 @@ export default function Home() {
             <FeatureCard
               icon="🤖"
               title="Voice AI Chat"
-              description="Speak directly to Gemini AI. Ask complex questions, get homework help, and hear the explanations read back to you natively."
+              description="Ask questions with voice, get step-by-step explanations, and keep momentum when you are stuck on a concept."
             />
             <FeatureCard
               icon="📊"
-              title="Progress Tracking"
-              description="Subject folders display dynamic progress rings. Track missing, in-progress, and completed assignments efficiently."
+              title="Class + Subject Tracking"
+              description="Track pending and completed work by class and subject so deadlines are clear at a glance."
             />
             <FeatureCard
               icon="🤝"
               title="Social Quad"
-              description="NFC bump or scan QR codes to instantly add friends. Collaborate in classes or create independent study groups."
+              description="Add friends with QR or NFC on Android, then coordinate homework and project progress in one place."
             />
             <FeatureCard
               icon="🔐"
-              title="Biometric Passkeys"
-              description="Keep your assignments secure. Optional App Lock and Biometric Passkeys ensure only you can access your study data."
+              title="Privacy + App Security"
+              description="Optional lock controls and account protection settings help keep your school data private."
             />
             <FeatureCard
               icon="🔥"
               title="Study Streaks"
-              description="Log in and complete tasks daily to build your streak. Level up your account from 'Study Buddy' to 'Homework Hero'."
+              description="Use repeatable study loops and streak momentum to stay consistent through heavy weeks."
             />
             <FeatureCard
               icon="✨"
-              title="Dynamic Theming"
-              description="Built with pure Material You. The app matches your device's exact color scheme automatically (Android 12+)."
+              title="Personalized Themes"
+              description="Customize your workspace vibe so your dashboard feels yours on Android and web."
             />
             <FeatureCard
               icon="📋"
               title="Group Bulletins"
-              description="Collaborative group projects feature real-time synced task boards (Todo, In Progress, Done) and bulletin posts."
+              description="Run shared boards with To-do, In Progress, and Done lanes plus team bulletin posts."
             />
             <FeatureCard
               icon="🔗"
               title="Deep Links"
-              description="Share project invites directly. Click an invite deep link and jump straight into your shared assignment group."
+              description="Invite teammates fast with links and open directly into the right workspace context."
             />
             <FeatureCard
               icon="🚀"
-              title="Fast & Lightweight"
-              description="Optimized with Provider state management and direct Firestore bindings for zero-wait performance."
+              title="Fast Cross-Device Sync"
+              description="Sign in once and your tasks, classes, and settings stay in sync across your devices."
             />
           </div>
         </div>
@@ -611,7 +613,7 @@ export default function Home() {
                   <>
                     <h3 className="text-3xl lg:text-4xl font-bold">Your Daily Hub</h3>
                     <p className="text-lg leading-relaxed" style={{ color: "var(--on-surface-variant)" }}>
-                      Start your day with a customized motivational quote. See your total pending work at a glance, and jump directly into the assignments needing your immediate attention.
+                      Start with what is due next, filter by class or subject, and jump into the exact tasks that need attention.
                     </p>
                   </>
                 )}
@@ -619,7 +621,7 @@ export default function Home() {
                   <>
                     <h3 className="text-3xl lg:text-4xl font-bold">Unleash Gemini AI</h3>
                     <p className="text-lg leading-relaxed" style={{ color: "var(--on-surface-variant)" }}>
-                      Stuck on a problem? Tap the mic, speak your question, and let Gemini analyze it. It will break down complex topics and use Text-to-Speech to guide you through it.
+                      Ask with your own words, get structured help, and keep solving without leaving your study flow.
                     </p>
                   </>
                 )}
@@ -627,7 +629,7 @@ export default function Home() {
                   <>
                     <h3 className="text-3xl lg:text-4xl font-bold">Bump To Connect</h3>
                     <p className="text-lg leading-relaxed" style={{ color: "var(--on-surface-variant)" }}>
-                      Hold your phones together. Using the native NFC bump feature, securely exchange profiles and instantly become study buddies.
+                      Connect friends with QR anywhere, or use NFC bump on Android for one-tap profile exchange.
                     </p>
                   </>
                 )}
@@ -644,13 +646,13 @@ export default function Home() {
                     {/* Dynamic inner content based on tab */}
                     <div className="w-full h-full relative">
                       {activeTab === "dashboard" && (
-                        <Image src="/bump.png" alt="Dashboard Screen" fill className="object-cover object-top" />
+                        <Image src="/dashboard.png" alt="Dashboard Screen" fill className="object-cover object-top" />
                       )}
                       {activeTab === "voice chat" && (
-                        <Image src="/dashboard.png" alt="AI Chat Screen" fill className="object-cover object-top" />
+                        <Image src="/chat.png" alt="AI Chat Screen" fill className="object-cover object-top" />
                       )}
                       {activeTab === "nfc friends" && (
-                        <Image src="/chat.png" alt="NFC Bump Screen" fill className="object-cover object-top" />
+                        <Image src="/bump.png" alt="NFC Bump Screen" fill className="object-cover object-top" />
                       )}
                     </div>
                   </div>

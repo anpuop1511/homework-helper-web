@@ -3,22 +3,23 @@ import Link from "next/link";
 export const metadata = {
   title: "Pricing | Homework Helper",
   description:
-    "Compare Helper+ and Helper Pass plans for Homework Helper. Purchase on Android and use benefits on web.",
+    "Homework Helper pricing: all core features are free across Android and web.",
 };
 
-const helperPlusFeatures = [
-  "Unlimited classes and subjects",
-  "Repeatable tasks",
-  "Premium and custom themes",
-  "500 coins every month",
+const includedFeatures = [
+  "Assignments, subjects, and class organization",
+  "AI chat workflows and model selection",
+  "Social features: QR invites, profiles, and group collaboration",
+  "Study timer, streak momentum, and deadline reminders",
+  "Google Classroom integration",
+  "Theme customization and Material You vibe options",
+  "Cross-device sync with the same account",
 ];
 
-const helperPassFeatures = [
-  "Everything in Helper+",
-  "Season battle pass access",
-  "Exclusive Helper Pass badge",
-  "750 coins every month",
-  "BYOK model choice",
+const upcomingSupportPerks = [
+  "Early access feature previews",
+  "Cosmetic packs and profile visuals",
+  "Optional supporter badges",
 ];
 
 export default function PricingPage() {
@@ -36,44 +37,35 @@ export default function PricingPage() {
           >
             ← Back to Home
           </Link>
-          <p
-            className="text-sm uppercase tracking-[0.22em] font-semibold mb-4"
-            style={{ color: "var(--primary)" }}
-          >
-            Always Free + Optional Plans
+          <p className="text-sm uppercase tracking-[0.22em] font-semibold mb-4" style={{ color: "var(--primary)" }}>
+            Simple Pricing
           </p>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-5">
-            Homework Helper is free. Upgrade if you want more.
+            One plan right now: Free.
           </h1>
           <p
             className="text-lg md:text-xl max-w-3xl mx-auto"
             style={{ color: "var(--on-surface-variant)" }}
           >
-            Purchase is currently available in the Android app. If you buy on
-            Android, your plan benefits work on web too.
+            We removed paywalls while we focus on product quality. Core features
+            are unlocked for everyone on Android and web.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
-          <article className="m3-card p-8 md:p-10 !rounded-3xl">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+          <article className="m3-card p-8 md:p-10 !rounded-3xl lg:col-span-2 border-2" style={{ borderColor: "var(--primary)" }}>
             <div className="mb-6">
-              <p
-                className="text-xs uppercase tracking-[0.2em] font-semibold mb-3"
-                style={{ color: "var(--primary)" }}
-              >
-                Most Popular Starter
+              <p className="text-xs uppercase tracking-[0.2em] font-semibold mb-3" style={{ color: "var(--primary)" }}>
+                Current Access
               </p>
-              <h2 className="text-3xl font-extrabold mb-2">Helper+</h2>
-              <p
-                className="text-lg"
-                style={{ color: "var(--on-surface-variant)" }}
-              >
-                $1.99/mo or $19.99/yr
+              <h2 className="text-3xl font-extrabold mb-2">Free for everyone</h2>
+              <p className="text-lg" style={{ color: "var(--on-surface-variant)" }}>
+                $0 on web, $0 on Android
               </p>
             </div>
 
             <ul className="space-y-3 mb-8">
-              {helperPlusFeatures.map((feature) => (
+              {includedFeatures.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
                   <span
                     className="inline-flex w-2 h-2 rounded-full mt-2"
@@ -87,32 +79,23 @@ export default function PricingPage() {
             </ul>
 
             <p className="text-sm" style={{ color: "var(--on-surface-variant)" }}>
-              Effective yearly value is about $1.67 per month.
+              This reflects the live app experience today.
             </p>
           </article>
 
-          <article
-            className="m3-card p-8 md:p-10 !rounded-3xl border-2"
-            style={{ borderColor: "var(--primary)" }}
-          >
+          <article className="m3-card p-8 md:p-10 !rounded-3xl">
             <div className="mb-6">
-              <p
-                className="text-xs uppercase tracking-[0.2em] font-semibold mb-3"
-                style={{ color: "var(--primary)" }}
-              >
-                Best Value Upgrade
+              <p className="text-xs uppercase tracking-[0.2em] font-semibold mb-3" style={{ color: "var(--primary)" }}>
+                Future
               </p>
-              <h2 className="text-3xl font-extrabold mb-2">Helper Pass</h2>
-              <p
-                className="text-lg"
-                style={{ color: "var(--on-surface-variant)" }}
-              >
-                $2.99/mo
+              <h2 className="text-3xl font-extrabold mb-2">Supporter tiers</h2>
+              <p className="text-lg" style={{ color: "var(--on-surface-variant)" }}>
+                Planned later, not required
               </p>
             </div>
 
             <ul className="space-y-3 mb-8">
-              {helperPassFeatures.map((feature) => (
+              {upcomingSupportPerks.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
                   <span
                     className="inline-flex w-2 h-2 rounded-full mt-2"
@@ -126,19 +109,18 @@ export default function PricingPage() {
             </ul>
 
             <p className="text-sm" style={{ color: "var(--on-surface-variant)" }}>
-              Only $1 more than Helper+ with battle pass, badge, and BYOK model
-              choice.
+              If we add monetization again, core study features will remain free.
             </p>
           </article>
         </div>
 
         <div className="m3-card !rounded-3xl p-8 md:p-10 mb-10">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4">How buying works right now</h3>
-          <ol className="space-y-3" style={{ color: "var(--on-surface-variant)" }}>
-            <li>1. Open Homework Helper on Android.</li>
-            <li>2. Purchase Helper+ or Helper Pass in the app.</li>
-            <li>3. Sign into the same account on web and your plan unlocks there too.</li>
-          </ol>
+          <h3 className="text-2xl md:text-3xl font-bold mb-4">What you can do today</h3>
+          <ul className="space-y-3" style={{ color: "var(--on-surface-variant)" }}>
+            <li>1. Install Android or open web.</li>
+            <li>2. Sign in once.</li>
+            <li>3. Start tracking assignments, collaborating, and studying immediately.</li>
+          </ul>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
