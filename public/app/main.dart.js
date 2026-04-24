@@ -34293,10 +34293,10 @@ var $async$V4=A.l(function(b,c){if(b===1)return A.m(c,r)
 for(;;)switch(s){case 0:s=3
 return A.h(A.d_(),$async$V4)
 case 3:h=c
-g=A.dE(J.ap(h.a,"feature_drop_v4_shown"))
+g=A.dE(J.ap(h.a,"feature_drop_v5_shown"))
 if(g===!0){s=1
 break}s=4
-return A.h(h.cl("Bool","feature_drop_v4_shown",!0),$async$V4)
+return A.h(h.cl("Bool","feature_drop_v5_shown",!0),$async$V4)
 case 4:if(a.e==null){s=1
 break}g=A.aS(a,!1)
 p=A.b([],t.Zt)
@@ -121000,17 +121000,17 @@ i=A.c_(A.a8(k,k,B.i,k,k,new A.a6(A.U(60,s.m()>>>16&255,s.m()>>>8&255,s.m()&255),
 q=j.b
 p=A.T(20)
 o=j.c
-p=A.a8(k,A.q("FEATURE DROP",k,k,k,k,k,A.aK().$4$color$fontSize$fontWeight$letterSpacing(o,11,B.au,1.4),k,k,k),B.i,k,k,new A.a6(q,k,k,p,k,k,B.o),k,k,k,B.vO,k,k,k)
-n=A.q("What's New \u2728",k,k,k,k,k,A.aK().$3$color$fontSize$fontWeight(s,30,B.au),B.aj,k,k)
+p=A.a8(k,A.q("APRIL DROP",k,k,k,k,k,A.aK().$4$color$fontSize$fontWeight$letterSpacing(o,11,B.au,1.4),k,k,k),B.i,k,k,new A.a6(q,k,k,p,k,k,B.o),k,k,k,B.vO,k,k,k)
+n=A.q("April Drop \u2728",k,k,k,k,k,A.aK().$3$color$fontSize$fontWeight(s,30,B.au),B.aj,k,k)
 m=j.rx
 l=t.p
-m=A.aj(A.b([p,B.Y,n,B.bt,A.q("A batch of powerful new features just landed.",k,k,k,k,k,A.cJ().$2$color$fontSize(m==null?s:m,14),B.aj,k,k)],l),B.k,k,B.h,B.j,0,B.p)
+m=A.aj(A.b([p,B.Y,n,B.bt,A.q("New tools for notes, quizzes, classes, and a much better home page.",k,k,k,k,k,A.cJ().$2$color$fontSize(m==null?s:m,14),B.aj,k,k)],l),B.k,k,B.h,B.j,0,B.p)
 s=j.y
 n=j.CW
 p=n==null?s:n
-s=A.bb(A.mO(A.aj(A.b([new A.yN("\ud83e\udded","Customisable Navigation","Reorder, hide, or reveal tabs in the bottom bar. Home is always pinned, and new Classes & Subjects tabs are now available!",q,k),B.Y,new A.yN("\ud83d\udcda","Subject Renaming & Linking",'Go to Settings \u2192 Subjects to rename any subject (e.g. "Science" \u2192 "Bio"). Then link your classes to those subjects directly.',s,k),B.Y,new A.yN("\ud83e\udd16","AI Classroom Import","Paste your Google Classroom homepage text into the new import tool and Gemini will intelligently extract your class names and subjects. Requires your Gemini API key in Settings \u2192 AI & Models.",p,k),B.Y,new A.yN("\ud83c\udfc6","Battle Pass Redesign","The Season Battle Pass has a fresh new look with enhanced reward tiers, smoother progress tracking, and more exciting cosmetics.",B.k0,k),B.bI],l),B.k,k,B.h,B.j,0,B.p),k,B.G,B.ev,k,k,B.a2),1)
+s=A.bb(A.mO(A.aj(A.b([new A.yN("\ud83d\uddd2\ufe0f","Notepad + Sticky Notes","Save quick notes, pin sticky thoughts, and attach photos so important facts stay in one place. If you connect a Gemini API key, it can read your notes back and help explain them.",q,k),B.Y,new A.yN("\ud83e\udde0","Practice Quizzes","Turn study guide photos into practice quizzes and review with Gemini-backed prompts. Requires a Gemini API key.",s,k),B.Y,new A.yN("\ud83c\udfeb","Google Classroom Links","Classes are cleaner and more organized, with direct Google Classroom links so students can jump into the right place faster.",p,k),B.Y,new A.yN("\ud83c\udfe0","Better Home Page","The home page is cleaner, more useful, and easier to scan so you can see what matters right away.",B.k0,k),B.bI],l),B.k,k,B.h,B.j,0,B.p),k,B.G,B.ev,k,k,B.a2),1)
 o=A.dC(k,q,o,k,B.vL,new A.bl(A.T(18),B.n),k,k)
-return A.ei(k,B.A,A.fb(!0,A.a8(k,A.aj(A.b([B.Q,i,B.aF,new A.al(B.kz,m,k),B.bI,s,new A.al(B.of,A.bp(A.eE(A.q("Let's go! \ud83d\ude80",k,k,k,k,k,A.aK().$2$fontSize$fontWeight(16,B.t),k,k,k),new A.apG(a),o),k,1/0),k)],l),B.k,k,B.h,B.j,0,B.p),B.i,k,k,new A.a6(k,k,k,k,k,new A.cw(B.aE,B.b_,B.a3,r,k,k),B.o),k,k,k,k,k,k,k),!0,!1,B.R,!0,!0),k,k)}}
+return A.ei(k,B.A,A.fb(!0,A.a8(k,A.aj(A.b([B.Q,i,B.aF,new A.al(B.kz,m,k),B.bI,s,new A.al(B.of,A.bp(A.eE(A.q("Open the April Drop",k,k,k,k,k,A.aK().$2$fontSize$fontWeight(16,B.t),k,k,k),new A.apG(a),o),k,1/0),k)],l),B.k,k,B.h,B.j,0,B.p),B.i,k,k,new A.a6(k,k,k,k,k,new A.cw(B.aE,B.b_,B.a3,r,k,k),B.o),k,k,k,k,k,k,k),!0,!1,B.R,!0,!0),k,k)}}
 A.apG.prototype={
 $0(){return A.aS(this.a,!1).dj()},
 $S:0}
