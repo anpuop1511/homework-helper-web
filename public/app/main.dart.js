@@ -35528,12 +35528,12 @@ b9p(a){switch(a.a){case 0:return"Verify your email"
 case 1:return"Reset your password"
 case 2:return"Recover email"
 case 3:return"Unknown action"}},
-blL(a){var s,r,q=a.gqA(a)
-if(q!=="hwhelper.tech"&&q!=="www.hwhelper.tech")return!1
-s=a.gdC(a).length===0||a.gdC(a)==="/"||a.gdC(a)==="/index.html"
-if(a.gqS().aj(0,"mode")&&a.gqS().aj(0,"oobCode")){r=!0
-if(!s)if(a.gdC(a)!=="/auth-handler")r=a.glm().length!==0&&B.b.gW(a.glm())==="auth-handler"}else r=!1
-return r},
+blL(a){var s,r=a.gqA(a)
+if(r!=="hwhelper.tech"&&r!=="www.hwhelper.tech")return!1
+if(!(a.gqS().aj(0,"mode")&&a.gqS().aj(0,"oobCode")))return!1
+s=!0
+if(a.gdC(a).length!==0)if(a.gdC(a)!=="/")if(a.gdC(a)!=="/index.html")if(a.gdC(a)!=="/auth-handler")s=a.glm().length!==0&&B.b.gW(a.glm())==="auth-handler"
+return s},
 zO:function zO(a,b){this.a=a
 this.b=b},
 ajS:function ajS(a){this.a=a},
