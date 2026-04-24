@@ -1,12 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/auth-handler(.*)",
-      "destination": "/app(.*)"
-    },
-    {
-      "source": "/app(.*)",
-      "destination": "/index.html"
+      "source": "/auth-handler",
+      "destination": "/app"
     },
     {
       "source": "/(.*)",
