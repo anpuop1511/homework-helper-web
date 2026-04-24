@@ -37949,7 +37949,7 @@ f1(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s){return A.bn0(a,b,c,d,e,f,g,"Outfit",h,
 bt6(){return $.bnJ()},
 Wb(a,b,c){var s=0,r=A.q(t.H),q,p,o,n,m,l,k,j
 var $async$Wb=A.m(function(d,e){if(d===1)return A.n(e,r)
-for(;;)switch(s){case 0:k=A.id("https://homework-helper-web-dun.vercel.app/api/send-auth-email",0,null)
+for(;;)switch(s){case 0:k=A.id("https://www.hwhelper.tech/api/send-auth-email",0,null)
 j=t.N
 j=A.A(j,j)
 j.n(0,"action",a)
