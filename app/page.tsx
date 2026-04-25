@@ -252,6 +252,7 @@ export default function Home() {
             HomeworkHelper
           </div>
           <div className="hidden md:flex items-center gap-8 font-medium">
+            <a href="#promo" className="hover:opacity-70 transition-opacity">Promo</a>
             <a href="#features" className="hover:opacity-70 transition-opacity">Features</a>
             <a href="#roadmap" className="hover:opacity-70 transition-opacity">Roadmap</a>
             <Link href="/pricing" className="hover:opacity-70 transition-opacity">Pricing</Link>
@@ -281,6 +282,7 @@ export default function Home() {
           >
             <div className="m3-card !rounded-2xl p-4 mx-1" style={{ background: "var(--surface-container-low)" }}>
               <div className="flex flex-col gap-3 font-medium">
+                <a href="#promo" onClick={() => setMobileMenuOpen(false)} className="py-2">Promo</a>
                 <a href="#features" onClick={() => setMobileMenuOpen(false)} className="py-2">Features</a>
                 <a href="#roadmap" onClick={() => setMobileMenuOpen(false)} className="py-2">Roadmap</a>
                 <Link href="/pricing" onClick={() => setMobileMenuOpen(false)} className="py-2">Pricing</Link>
@@ -371,6 +373,97 @@ export default function Home() {
             >
               Launch Web App 🚀
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 30s Promo Sequence */}
+      <section id="promo" className="py-24 px-6" style={{ background: "var(--surface-container-lowest)" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-10 fade-in-up">
+            <p className="text-sm uppercase tracking-[0.22em] font-semibold mb-4" style={{ color: "var(--primary)" }}>
+              30-Second Promo
+            </p>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Watch Homework Helper in motion.</h2>
+          </div>
+
+          <div className="promo-stage m3-card !rounded-[36px] p-6 md:p-10 fade-in-up">
+            <article className="promo-slide promo-delay-0">
+              <div className="promo-content-grid">
+                <div>
+                  <p className="promo-kicker">Scene 1 · 0s-6s</p>
+                  <h3 className="promo-title">Start from your dashboard.</h3>
+                  <p className="promo-copy">See pending work, sort priorities, and begin with the exact task that matters now.</p>
+                </div>
+                <div className="promo-phone-frame">
+                  <Image src="/dashboard.png" alt="Homework Helper dashboard preview" fill className="object-cover object-top" />
+                </div>
+              </div>
+            </article>
+
+            <article className="promo-slide promo-delay-6">
+              <div className="promo-content-grid">
+                <div>
+                  <p className="promo-kicker">Scene 2 · 6s-12s</p>
+                  <h3 className="promo-title">Ask, talk, and learn with AI.</h3>
+                  <p className="promo-copy">Voice chat helps you break down concepts into steps you can actually use.</p>
+                </div>
+                <div className="promo-phone-frame">
+                  <Image src="/chat.png" alt="Homework Helper AI voice chat preview" fill className="object-cover object-top" />
+                </div>
+              </div>
+            </article>
+
+            <article className="promo-slide promo-delay-12">
+              <div className="promo-content-grid">
+                <div>
+                  <p className="promo-kicker">Scene 3 · 12s-18s</p>
+                  <h3 className="promo-title">Connect with classmates fast.</h3>
+                  <p className="promo-copy">Use QR anywhere and NFC bump on Android for instant social setup.</p>
+                </div>
+                <div className="promo-phone-frame">
+                  <Image src="/bump.png" alt="Homework Helper social bump preview" fill className="object-cover object-top" />
+                </div>
+              </div>
+            </article>
+
+            <article className="promo-slide promo-delay-18">
+              <div className="promo-content-grid">
+                <div>
+                  <p className="promo-kicker">Scene 4 · 18s-24s</p>
+                  <h3 className="promo-title">Own your study flow.</h3>
+                  <p className="promo-copy">Classes, projects, streaks, and focused sessions all stay in one workspace.</p>
+                </div>
+                <div className="promo-stat-stack">
+                  <div className="promo-stat-tile">
+                    <span>Task Clarity</span>
+                    <strong>Always On</strong>
+                  </div>
+                  <div className="promo-stat-tile">
+                    <span>Cross-Device</span>
+                    <strong>Synced</strong>
+                  </div>
+                  <div className="promo-stat-tile">
+                    <span>Collab Ready</span>
+                    <strong>Built In</strong>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article className="promo-slide promo-delay-24 promo-finale">
+              <p className="promo-kicker">Finale · 24s-30s</p>
+              <div className="promo-brand-wrap" aria-label="HomeworkHelper brand merge animation">
+                <span className="promo-brand-left">Homework</span>
+                <span className="promo-brand-right">Helper</span>
+                <span className="promo-brand-final">HomeworkHelper</span>
+              </div>
+              <p className="promo-copy text-center">Organize. Learn. Win your week.</p>
+            </article>
+
+            <div className="promo-progress" aria-hidden="true">
+              <span className="promo-progress-fill" />
+            </div>
           </div>
         </div>
       </section>
