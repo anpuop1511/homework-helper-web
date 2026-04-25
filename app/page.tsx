@@ -52,7 +52,7 @@ const faqData = {
     {
       question: "How does the AI Voice Chat work?",
       answer:
-        "Homework Helper integrates with Gemini AI. Ask by voice, and get educational step-by-step responses read back with speech.",
+        "Homework Helper integrates with AI. Ask by voice, and get educational step-by-step responses read back with speech.",
     },
     {
       question: "Is my data shared or sold?",
@@ -619,7 +619,7 @@ export default function Home() {
                 )}
                 {activeTab === "voice chat" && (
                   <>
-                    <h3 className="text-3xl lg:text-4xl font-bold">Unleash Gemini AI</h3>
+                    <h3 className="text-3xl lg:text-4xl font-bold">Unleash AI</h3>
                     <p className="text-lg leading-relaxed" style={{ color: "var(--on-surface-variant)" }}>
                       Ask with your own words, get structured help, and keep solving without leaving your study flow.
                     </p>
