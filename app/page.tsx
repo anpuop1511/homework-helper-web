@@ -395,8 +395,13 @@ export default function Home() {
                   <h3 className="promo-title">Start from your dashboard.</h3>
                   <p className="promo-copy">See pending work, sort priorities, and begin with the exact task that matters now.</p>
                 </div>
-                <div className="promo-phone-frame">
-                  <Image src="/dashboard.png" alt="Homework Helper dashboard preview" fill className="object-cover object-top" />
+                <div className="promo-phone-frame promo-ui-shell" role="img" aria-label="Animated dashboard mockup">
+                  <div className="promo-ui-topbar" />
+                  <div className="promo-ui-task promo-ui-task-a" />
+                  <div className="promo-ui-task promo-ui-task-b" />
+                  <div className="promo-ui-task promo-ui-task-c" />
+                  <div className="promo-ui-task promo-ui-task-d" />
+                  <div className="promo-ui-bubble" />
                 </div>
               </div>
             </article>
@@ -408,8 +413,18 @@ export default function Home() {
                   <h3 className="promo-title">Ask, talk, and learn with AI.</h3>
                   <p className="promo-copy">Voice chat helps you break down concepts into steps you can actually use.</p>
                 </div>
-                <div className="promo-phone-frame">
-                  <Image src="/chat.png" alt="Homework Helper AI voice chat preview" fill className="object-cover object-top" />
+                <div className="promo-phone-frame promo-voice-shell" role="img" aria-label="Animated voice chat mockup">
+                  <div className="promo-voice-orb" />
+                  <div className="promo-wave-wrap">
+                    <span className="promo-wave promo-wave-1" />
+                    <span className="promo-wave promo-wave-2" />
+                    <span className="promo-wave promo-wave-3" />
+                    <span className="promo-wave promo-wave-4" />
+                    <span className="promo-wave promo-wave-5" />
+                    <span className="promo-wave promo-wave-6" />
+                    <span className="promo-wave promo-wave-7" />
+                  </div>
+                  <div className="promo-chat-pill" />
                 </div>
               </div>
             </article>
@@ -421,8 +436,16 @@ export default function Home() {
                   <h3 className="promo-title">Connect with classmates fast.</h3>
                   <p className="promo-copy">Use QR anywhere and NFC bump on Android for instant social setup.</p>
                 </div>
-                <div className="promo-phone-frame">
-                  <Image src="/bump.png" alt="Homework Helper social bump preview" fill className="object-cover object-top" />
+                <div className="promo-phone-frame promo-social-shell" role="img" aria-label="Animated social network mockup">
+                  <span className="promo-node promo-node-center" />
+                  <span className="promo-node promo-node-a" />
+                  <span className="promo-node promo-node-b" />
+                  <span className="promo-node promo-node-c" />
+                  <span className="promo-node promo-node-d" />
+                  <span className="promo-link promo-link-a" />
+                  <span className="promo-link promo-link-b" />
+                  <span className="promo-link promo-link-c" />
+                  <span className="promo-link promo-link-d" />
                 </div>
               </div>
             </article>

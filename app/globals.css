@@ -300,6 +300,193 @@ body {
   box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
 }
 
+.promo-ui-shell,
+.promo-voice-shell,
+.promo-social-shell {
+  padding: 16px;
+}
+
+.promo-ui-shell {
+  display: grid;
+  grid-template-rows: auto repeat(4, 1fr) auto;
+  gap: 10px;
+  background:
+    radial-gradient(circle at 20% 15%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 45%),
+    var(--surface-container-high);
+}
+
+.promo-ui-topbar {
+  height: 14px;
+  border-radius: 999px;
+  width: 58%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  animation: promoSweep 2.4s ease-in-out infinite;
+}
+
+.promo-ui-task {
+  border-radius: 14px;
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-container-low);
+  transform-origin: left center;
+  animation: promoCardBreath 2.2s ease-in-out infinite;
+}
+
+.promo-ui-task-a { animation-delay: 0s; }
+.promo-ui-task-b { animation-delay: 0.2s; }
+.promo-ui-task-c { animation-delay: 0.4s; }
+.promo-ui-task-d { animation-delay: 0.6s; }
+
+.promo-ui-bubble {
+  justify-self: end;
+  width: 38%;
+  height: 12px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary) 55%, white);
+  animation: promoSweep 2.1s ease-in-out infinite;
+}
+
+.promo-voice-shell {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at center, color-mix(in oklab, var(--primary) 22%, transparent), transparent 62%),
+    var(--surface-container-high);
+}
+
+.promo-voice-orb {
+  width: 94px;
+  height: 94px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 30%, #fff, color-mix(in oklab, var(--primary) 65%, var(--secondary)) 52%, var(--primary));
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 40%, transparent);
+  animation: promoOrbPulse 2s ease-in-out infinite;
+  margin-bottom: 18px;
+}
+
+.promo-wave-wrap {
+  width: 82%;
+  height: 78px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 6px;
+}
+
+.promo-wave {
+  width: 9px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  animation: promoWave 1s ease-in-out infinite;
+}
+
+.promo-wave-1 { height: 22px; animation-delay: 0s; }
+.promo-wave-2 { height: 34px; animation-delay: 0.08s; }
+.promo-wave-3 { height: 52px; animation-delay: 0.16s; }
+.promo-wave-4 { height: 68px; animation-delay: 0.24s; }
+.promo-wave-5 { height: 52px; animation-delay: 0.32s; }
+.promo-wave-6 { height: 34px; animation-delay: 0.40s; }
+.promo-wave-7 { height: 22px; animation-delay: 0.48s; }
+
+.promo-chat-pill {
+  width: 58%;
+  height: 12px;
+  border-radius: 999px;
+  margin-top: 14px;
+  background: color-mix(in oklab, var(--secondary) 60%, white);
+  animation: promoSweep 2.2s ease-in-out infinite;
+}
+
+.promo-social-shell {
+  background:
+    radial-gradient(circle at 70% 18%, color-mix(in oklab, var(--secondary) 22%, transparent), transparent 45%),
+    var(--surface-container-high);
+}
+
+.promo-node,
+.promo-link {
+  position: absolute;
+}
+
+.promo-node {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 2px solid color-mix(in oklab, var(--primary) 60%, white);
+  background: var(--surface);
+  box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 25%, transparent);
+  animation: promoNodePulse 2.4s ease-in-out infinite;
+}
+
+.promo-node-center {
+  width: 30px;
+  height: 30px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border: none;
+  animation: none;
+}
+
+.promo-node-a { left: 18%; top: 22%; animation-delay: 0.1s; }
+.promo-node-b { right: 16%; top: 24%; animation-delay: 0.35s; }
+.promo-node-c { left: 20%; bottom: 20%; animation-delay: 0.5s; }
+.promo-node-d { right: 18%; bottom: 22%; animation-delay: 0.75s; }
+
+.promo-link {
+  height: 2px;
+  background: color-mix(in oklab, var(--primary) 40%, transparent);
+  transform-origin: left center;
+  animation: promoLinkFlow 2.2s ease-in-out infinite;
+}
+
+.promo-link-a { width: 30%; left: 30%; top: 35%; transform: rotate(-26deg); animation-delay: 0s; }
+.promo-link-b { width: 30%; left: 50%; top: 35%; transform: rotate(26deg); animation-delay: 0.2s; }
+.promo-link-c { width: 30%; left: 30%; top: 64%; transform: rotate(24deg); animation-delay: 0.35s; }
+.promo-link-d { width: 30%; left: 50%; top: 64%; transform: rotate(-24deg); animation-delay: 0.5s; }
+
+@keyframes promoCardBreath {
+  0%, 100% { transform: scaleX(0.93); opacity: 0.8; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes promoSweep {
+  0%, 100% { transform: scaleX(0.8); opacity: 0.75; }
+  50% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes promoOrbPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 35%, transparent);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 18px color-mix(in oklab, var(--primary) 8%, transparent);
+  }
+}
+
+@keyframes promoWave {
+  0%, 100% { transform: scaleY(0.45); opacity: 0.55; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+@keyframes promoNodePulse {
+  0%, 100% {
+    transform: scale(0.92);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 18%, transparent);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px color-mix(in oklab, var(--primary) 10%, transparent);
+  }
+}
+
+@keyframes promoLinkFlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.92; }
+}
+
 .promo-stat-stack {
   display: grid;
   gap: 10px;
