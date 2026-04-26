@@ -4,7 +4,8 @@ const admin = require('firebase-admin');
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromAddress =
   process.env.RESEND_FROM || 'Homework Helper <no-reply@hwhelper.tech>';
-const authHandlerUrl = 'https://hwhelper.tech/app';
+const authHandlerUrl =
+  process.env.AUTH_HANDLER_URL || 'https://www.hwhelper.tech/app';
 
 function initializeFirebaseAdmin() {
   if (admin.apps.length > 0) return;
